@@ -1,0 +1,69 @@
+﻿  stdafx.cpp
+  animation.cpp
+  Bomb.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\bomb.cpp(76): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\bomb.cpp(89): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  button.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\button.cpp(23): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\button.cpp(24): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  database.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\database.cpp(42): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\database.cpp(74): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\database.cpp(81): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  effect.cpp
+  effectManager.cpp
+  gameNode.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\gamenode.cpp(86): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\gamenode.cpp(87): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\gamenode.cpp(81): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\gamenode.cpp(80): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+  image.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(335): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(334): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(347): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(574): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(578): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(582): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  imageManager.cpp
+  iniDataManager.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\inidatamanager.cpp(55): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\inidatamanager.cpp(49): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\inidatamanager.cpp(75): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\inidatamanager.cpp(92): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+  keyManager.cpp
+  OctaWindowsAPI.cpp
+  Player.cpp
+  Player2.cpp
+  playGround.cpp
+  progressBar.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\progressbar.cpp(21): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\progressbar.cpp(23): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\progressbar.cpp(26): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\progressbar.cpp(56): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  sceneManager.cpp
+  soundManager.cpp
+  tile.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\tile.cpp(38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  tileManager.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\tilemanager.cpp(93): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\tilemanager.cpp(105): warning C4715: 'tileManager::GetTileList': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\inidatamanager.cpp(83): warning C4172: 지역 변수 또는 임시: data의 주소를 반환하고 있습니다.
+  컴파일하고 있습니다...
+  timeManager.cpp
+  timer.cpp
+  txtData.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\txtdata.cpp(55): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\txtdata.cpp(58): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\txtdata.cpp(91): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\txtdata.cpp(94): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\txtdata.cpp(87): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+  utils.cpp
+  코드를 생성하고 있습니다...
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\txtdata.cpp(61): warning C4172: 지역 변수 또는 임시: str의 주소를 반환하고 있습니다.
+  OctaWindowsAPI.vcxproj -> C:\Users\bond kim\source\repos\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe

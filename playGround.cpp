@@ -14,18 +14,18 @@ HRESULT playGround::init()
 {
 	gameNode::init(true);
 
-	IMAGEMANAGER->addImage("wBlock", "Water_Block.bmp", 64, 64, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("wWall", "Water_Wall.bmp", 64, 64, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("wTile1", "Water_Tile_1.bmp", 64, 64, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("wTile2", "Water_Tile_2.bmp", 64, 64, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("wTile3", "Water_Tile_3.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wBlock", "image/Water_Block.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wWall",  "image/Water_Wall.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wTile1", "image/Water_Tile_1.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wTile2", "image/Water_Tile_2.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wTile3", "image/Water_Tile_3.bmp", 64, 64, true, RGB(255, 0, 255));
 	
 
-	IMAGEMANAGER->addFrameImage("battle", "battle.bmp", 0, 0, 1536, 79, 16, 1, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("버튼", "button.bmp", 0, 0, 122, 62, 1, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Player1", "character1.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Player2", "character2.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("Bub", "BlueBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
+	IMAGEMANAGER->addFrameImage("battle",  "image/battle.bmp", 0, 0, 1536, 79, 16, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("버튼",    "image/button.bmp", 0, 0, 122, 62, 1, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Player1", "image/character1.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Player2", "image/character2.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Bub",     "image/BlueBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
 
 	TILEMANAGER->init();
 	
