@@ -17,7 +17,7 @@ HRESULT tileManager::init()
 
 	int tempPattern[400] = //0 = TILE, 1 = BLOCK, 2 = WALL, 3 = EMPTY
 	{
-		0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 2, 1, 0,
+		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 2, 1, 0,
 		1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0, 0, 0, 2, 1, 0,
 		0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0,
 		0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0
@@ -62,10 +62,12 @@ void tileManager::maketilestage(const char *stageName, int *tilePattern)
 				}
 				else if (tilePattern[y * lastArrX + x] == BLOCK)
 				{
+					
 					pushTile("WaterStage", "wBlock", y, x, BLOCK, true);
 				}
 				else if (tilePattern[y * lastArrX + x] == WALL)
 				{
+					
 					pushTile("WaterStage", "wWall", y, x, WALL, true);
 				}
 				else
@@ -90,7 +92,7 @@ void tileManager::pushTile(const char *stageName, const char *imageName, int _ar
 		return;
 
 	tile t = tile();
-	t.init(imageName, tileFirstX + 64 * _arrayX, tileFirstY + 64 * _arrayY, _arrayX, _arrayY, _state, _setCheck);
+	t.init(imageName, tileFirstX + 64* _arrayX, tileFirstY + 64 * _arrayY, _arrayX, _arrayY, _state, _setCheck);
 
 	wIter[_arrayY][_arrayX] = t;
 }
