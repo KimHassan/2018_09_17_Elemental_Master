@@ -36,6 +36,8 @@ public:
 	RECT GetTileRect();
 	int GetTileState();
 
+	int GetSizeX() { return sizeX; }
+	int GetSizeY() { return sizeY; }
 public:
 	tile();
 	virtual ~tile();

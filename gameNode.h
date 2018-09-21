@@ -2,8 +2,8 @@
 #include "image.h"
 
 #define IMAGEMANAGER imageManager::getSingeton()
-#define WINSIZEX 800
-#define WINSIZEY 600
+#define WINSIZEX 1280
+#define WINSIZEY 720
 
 //'backBuffer'란 이름을 가진 빈 비트맵을 하나 static으로 만들어둔다
 static image* _backBuffer = IMAGEMANAGER->addImage("backBuffer", WINSIZEX, WINSIZEY);

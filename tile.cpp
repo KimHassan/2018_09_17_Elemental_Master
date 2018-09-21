@@ -5,9 +5,6 @@ HRESULT tile::init(const char *imageName, float _posX, float _posY, int _arrayX,
 {
 	image = IMAGEMANAGER->findImage(imageName);
 
-	sizeX = 64;
-	sizeY = 64;
-
 	arrayX = _arrayX;
 	arrayY = _arrayY;
 
@@ -26,6 +23,14 @@ HRESULT tile::init(const char *imageName, float _posX, float _posY, int _arrayX,
 		(LONG)posY + (LONG)sizeY
 	};
 
+	//if (_state == BLOCK)
+	//{
+	//	posY -= 14;
+	//}
+	//if (_state == WALL)
+	//{
+	//	posY -= 14;
+	//}
 	return S_OK;
 }
 
@@ -35,7 +40,14 @@ void tile::update()
 
 void tile::render()
 {
-	image->render(getMemDC(), posX, posY);
+	if (state == TILE)
+	{
+		image->render(getMemDC(), posX, posY);
+	}
+	else
+	{
+		image->render(getMemDC(), posX, posY-14);
+	}
 }
 
 void tile::release()

@@ -14,8 +14,8 @@ HRESULT playGround::init()
 {
 	gameNode::init(true);
 
-	IMAGEMANAGER->addImage("wBlock", "image/Water_Block.bmp", 64, 64, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("wWall",  "image/Water_Wall.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wBlock", "image/Water_Block.bmp", 64, 78, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wWall",  "image/Water_Wall.bmp", 64, 78, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("wTile1", "image/Water_Tile_1.bmp", 64, 64, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("wTile2", "image/Water_Tile_2.bmp", 64, 64, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("wTile3", "image/Water_Tile_3.bmp", 64, 64, true, RGB(255, 0, 255));
@@ -66,8 +66,9 @@ void playGround::render(void)
 
 	p1->render();
 	
-	p2->render();
+	//p2->render();
 
+	IMAGEMANAGER->render("wBlock", getMemDC(), 10, 10);
 
 	
 	//이런식으로 어떤 스테이지의 타일 리스트를 얻어온다

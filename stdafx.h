@@ -39,8 +39,8 @@ using namespace OCTA_UTIL;
 #define WINNAME (LPSTR)(TEXT("Octa API"))
 #define WINSTARTX 20
 #define WINSTARTY 50
-#define WINSIZEX 800
-#define WINSIZEY 600
+#define WINSIZEX 1280
+#define WINSIZEY 720
 #define WINSTYLE WS_CAPTION | WS_SYSMENU
 
 #define RND randomFunction::getSingeton()
