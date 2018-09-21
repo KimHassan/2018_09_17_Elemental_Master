@@ -25,6 +25,14 @@ HRESULT Player::init(int _posX, int _posY)
 	b = new BombManager;
 	b->init(10);
 
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			map[i][j] = false;
+		}
+	}
+
 	return S_OK;
 }
 void Player::update()
@@ -34,7 +42,7 @@ void Player::update()
 
 	if (PtInRect(&TILEMANAGER->GetTileList("WaterStage")[3][3].GetTileRect(), PointMake(x, y)))
 	{
-		b->setBomb(x, y);
+		//b->setBomb(x, y);
 	}
 
 
@@ -124,12 +132,26 @@ void Player::update()
 		}
 	}
 
-
-
 	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
-
-		b->setBomb(x, y);
+		
+		for (int i = 0; i < 20; i++)
+		{
+			for (int j = 0; j < 20; j++)
+			{
+				if (i * 64 < x + 35 && (i + 1) * 64 > x + 35)
+				{
+					if (j * 64 < y + 100 && (j + 1) * 64 > y + 100)
+					{
+						if (map[i][j] == false)
+						{
+							map[i][j] = true;
+							b->setBomb(i * 64, j * 64);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	b->update();

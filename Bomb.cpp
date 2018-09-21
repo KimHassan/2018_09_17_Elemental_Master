@@ -31,7 +31,7 @@ void Bomb::update()
 {
 	count++;
 
-	if (count % 50 == 0 && count != 0)
+	if (count % 30 == 0 && count != 0)
 	{
 		frameX++;
 	}
