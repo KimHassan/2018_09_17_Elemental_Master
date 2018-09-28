@@ -1,9 +1,6 @@
 #pragma once
 #include "gameNode.h"
-#include "Bomb.h"
-
-
-
+#include "BulletManager.h"
 class Player :
 	public gameNode
 {
@@ -21,7 +18,7 @@ private:
 	UINT speed;
 	UINT count;
 	RECT rc;
-	BombManager *b;
+	BulletManager *b;
 
 public:
 	Player();

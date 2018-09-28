@@ -9,8 +9,6 @@ private:
 	Player *p1;
 	Player2 *p2;
 
-	
-	
 
 public:
 	virtual HRESULT init();

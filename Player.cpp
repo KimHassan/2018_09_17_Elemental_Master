@@ -22,7 +22,7 @@ HRESULT Player::init(int _posX, int _posY)
 	frameX = 0;
 	frameY = 1;
 
-	b = new BombManager;
+	b = new BulletManager;
 	b->init(10);
 
 	for (int i = 0; i < 15; i++)
@@ -40,10 +40,14 @@ void Player::update()
 {
 	rc = RectMake(x+10, y+70, 50, 30);
 	center = PointMake(x + 35, rc.bottom-5);
+	if (KEYMANAGER->isOnceKeyDown('H'))
+		b->setBoom(1, 1);
 	MoveUpdate();
 	FrameUpdate();
 	setBomb();
 	b->update();
+
+
 }
 
 
@@ -54,10 +58,10 @@ void Player::MoveUpdate()// 캐릭터의 이동을 담당함
 	{
 		for (int j = 0; j < TILEMANAGER->GetTileLastArrX(); j++)
 		{
-			if (PtInRect(&TILEMANAGER->GetTileList("WaterStage")[j][i].GetTileRect(), center))
+			if (PtInRect(&TILEMANAGER->GetTileList("WaterStage")[i][j].GetTileRect(), center))
 			{
-				arrayX = i;
-				arrayY = j;
+				arrayX = j;
+				arrayY = i;
 			}
 		}
 	}
@@ -77,9 +81,9 @@ void Player::MoveUpdate()// 캐릭터의 이동을 담당함
 	{
 		if (rc.right > GAMEWINDOWX + GAMEWINDOWWIDTH)
 			return;
-		if (TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX + 1].GetTileState() != TILE)
+		/*if (TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX + 1].GetTileState() != TILE)
 			if (IntersectRect(&temp, &TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX + 1].GetTileRect(), &rc))
-				return;
+				return;*/
 		x += speed;
 
 	}
@@ -88,9 +92,15 @@ void Player::MoveUpdate()// 캐릭터의 이동을 담당함
 	{
 		if (rc.top < GAMEWINDOWY)
 			return;
-		if (TILEMANAGER->GetTileList("WaterStage")[arrayY-1][arrayX].GetTileState() != TILE)
-			if (IntersectRect(&temp, &TILEMANAGER->GetTileList("WaterStage")[arrayY-1][arrayX].GetTileRect(), &rc))
-				return;
+		if (arrayY - 1 < 0)
+		{
+		}
+		else
+		{
+			if (TILEMANAGER->GetTileList("WaterStage")[arrayY - 1][arrayX].GetTileState() != TILE)
+				if (IntersectRect(&temp, &TILEMANAGER->GetTileList("WaterStage")[arrayY - 1][arrayX].GetTileRect(), &rc))
+					return;
+		}
 		y -= speed;
 
 	}
@@ -215,7 +225,7 @@ void Player::setBomb() // 캐릭터의 폭탄을 담당함
 	//}
 	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
-		b->setBomb(TILEMANAGER->GetTileList("WaterStage")[arrayX][arrayY].GetTileRect().left, TILEMANAGER->GetTileList("WaterStage")[arrayX][arrayY].GetTileRect().top);
+		b->setBomb(arrayY, arrayX);
 	}
 }
 

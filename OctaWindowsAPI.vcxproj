@@ -80,6 +80,8 @@
   <ItemGroup>
     <ClInclude Include="animation.h" />
     <ClInclude Include="Bomb.h" />
+    <ClInclude Include="Boom.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="commonMacroFunction.h" />
     <ClInclude Include="database.h" />
@@ -111,6 +113,8 @@
   <ItemGroup>
     <ClCompile Include="animation.cpp" />
     <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="Boom.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="effect.cpp" />

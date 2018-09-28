@@ -26,7 +26,7 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addFrameImage("Player1", "image/character1.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Player2", "image/character2.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Bub",     "image/BlueBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
-
+	IMAGEMANAGER->addFrameImage("Boom",		"image/Boomcenter.bmp", 0, 0, 120, 40, 3, 1, true, RGB(0, 0, 0));
 	TILEMANAGER->init();
 	
 	p1 = new Player;
