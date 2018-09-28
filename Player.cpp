@@ -37,13 +37,10 @@ HRESULT Player::init(int _posX, int _posY)
 }
 void Player::update()
 {
-	rc = RectMake(x, y, 70, 100);
+	rc = RectMake(x+7, y+30, 57, 70);
 
+	RECT tTemp;
 
-	if (PtInRect(&TILEMANAGER->GetTileList("WaterStage")[3][3].GetTileRect(), PointMake(x, y)))
-	{
-		//b->setBomb(x, y);
-	}
 
 
 	//if(TILEMANAGER->GetTileList("WaterStage")[0][0].GetTileRect())
@@ -153,7 +150,13 @@ void Player::update()
 			}
 		}
 	}
-
+	RECT temp;
+	if (IntersectRect(&temp, &rc, &TILEMANAGER->GetTileList("WaterStage")[0][6].GetTileRect()))
+	{
+		
+		TILEMANAGER->GetTileList("WaterStage")[0][6].DestroyBlock();
+		
+	}
 	b->update();
 }
 

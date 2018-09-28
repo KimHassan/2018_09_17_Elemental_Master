@@ -66,9 +66,7 @@ void playGround::render(void)
 
 	p1->render();
 	
-	//p2->render();
-
-	IMAGEMANAGER->render("wBlock", getMemDC(), 10, 10);
+	p2->render();
 
 	
 	//이런식으로 어떤 스테이지의 타일 리스트를 얻어온다

@@ -35,6 +35,7 @@ public:
 	bool GetCheck();
 	RECT GetTileRect();
 	int GetTileState();
+	void DestroyBlock();
 
 	int GetSizeX() { return sizeX; }
 	int GetSizeY() { return sizeY; }

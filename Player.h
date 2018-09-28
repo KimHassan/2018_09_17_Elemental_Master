@@ -13,6 +13,7 @@ private:
 
 	int x, y;
 	int frameX, frameY;
+	int arrayX, arrayY;
 	int map[20][20];
 
 	UINT count;
