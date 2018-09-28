@@ -30,7 +30,7 @@ HRESULT playGround::init()
 	TILEMANAGER->init();
 	
 	p1 = new Player;
-	p1->init(100, 100);
+	p1->init(300, 200);
 
 	p2 = new Player2;
 	p2->init(500, 100);

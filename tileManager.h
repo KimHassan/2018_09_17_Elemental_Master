@@ -17,7 +17,12 @@ public:
 	void pushTile(const char *stageName, const char *imageName, int _arrayY, int _arrayX, int _state, bool _setCheck);
 
 	tile **GetTileList(const char *stageName);
-
+	int GetTileLastArrX() {
+		return lastArrX;
+	}
+	int GetTileLastArrY() {
+		return lastArrY;
+	}
 	tileManager();
 	virtual ~tileManager();
 };

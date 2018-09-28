@@ -12,10 +12,13 @@ private:
 	tile *tile;
 
 	int x, y;
+	int width, height;
+	POINT center;
 	int frameX, frameY;
 	int arrayX, arrayY;
 	int map[20][20];
 
+	UINT speed;
 	UINT count;
 	RECT rc;
 	BombManager *b;
@@ -26,9 +29,13 @@ public:
 
 	HRESULT init(int _posX, int _posY);
 	void update();
+	void MoveUpdate();
+	void FrameUpdate();
+	void setBomb();
 	void render();
 	void release();
 	int getX() { return x; }
 	int getY() { return y; }
 	RECT getRect() { return rc; }
+	
 };

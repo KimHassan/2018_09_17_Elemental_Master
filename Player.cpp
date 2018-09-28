@@ -16,7 +16,7 @@ HRESULT Player::init(int _posX, int _posY)
 {
 	img = IMAGEMANAGER->findImage("Player1");
 
-	x = _posX;
+	x = _posY;
 	y = _posY;
 
 	frameX = 0;
@@ -25,25 +25,89 @@ HRESULT Player::init(int _posX, int _posY)
 	b = new BombManager;
 	b->init(10);
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 15; i++)
 	{
-		for (int j = 0; j < 20; j++)
+		for (int j = 0; j < 10; j++)
 		{
 			map[i][j] = false;
 		}
 	}
 
+	speed = 3;
 	return S_OK;
 }
 void Player::update()
 {
-	rc = RectMake(x+7, y+30, 57, 70);
+	rc = RectMake(x+10, y+70, 50, 30);
+	center = PointMake(x + 35, rc.bottom-5);
+	MoveUpdate();
+	FrameUpdate();
+	setBomb();
+	b->update();
+}
 
-	RECT tTemp;
 
+void Player::MoveUpdate()// 캐릭터의 이동을 담당함
+{
 
+	for (int i = 0; i < TILEMANAGER->GetTileLastArrY(); i++)
+	{
+		for (int j = 0; j < TILEMANAGER->GetTileLastArrX(); j++)
+		{
+			if (PtInRect(&TILEMANAGER->GetTileList("WaterStage")[j][i].GetTileRect(), center))
+			{
+				arrayX = i;
+				arrayY = j;
+			}
+		}
+	}
+	RECT temp;
+	if (KEYMANAGER->isStayKeyDown(VK_LEFT))
+	{	
+		if (rc.left < GAMEWINDOWX)
+			return;
+		if (TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX-1].GetTileState()!=TILE)
+			if(IntersectRect(&temp,&TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX-1].GetTileRect(),&rc))
+				return;
+		x -= speed;
 
-	//if(TILEMANAGER->GetTileList("WaterStage")[0][0].GetTileRect())
+	}
+
+	if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
+	{
+		if (rc.right > GAMEWINDOWX + GAMEWINDOWWIDTH)
+			return;
+		if (TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX + 1].GetTileState() != TILE)
+			if (IntersectRect(&temp, &TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX + 1].GetTileRect(), &rc))
+				return;
+		x += speed;
+
+	}
+
+	if (KEYMANAGER->isStayKeyDown(VK_UP))
+	{
+		if (rc.top < GAMEWINDOWY)
+			return;
+		if (TILEMANAGER->GetTileList("WaterStage")[arrayY-1][arrayX].GetTileState() != TILE)
+			if (IntersectRect(&temp, &TILEMANAGER->GetTileList("WaterStage")[arrayY-1][arrayX].GetTileRect(), &rc))
+				return;
+		y -= speed;
+
+	}
+
+	if (KEYMANAGER->isStayKeyDown(VK_DOWN))
+	{
+		if (rc.bottom > GAMEWINDOWY + GAMEWINDOWHEIGHT)
+			return;
+		if (TILEMANAGER->GetTileList("WaterStage")[arrayY + 1][arrayX].GetTileState() != TILE)
+			if (IntersectRect(&temp, &TILEMANAGER->GetTileList("WaterStage")[arrayY + 1][arrayX].GetTileRect(), &rc))
+				return;
+		y += speed;
+
+	}
+}
+void Player::FrameUpdate() // 캐릭터의 애니메이션을 담당함
+{
 	if (KEYMANAGER->isOnceKeyUp(VK_LEFT) || KEYMANAGER->isOnceKeyUp(VK_RIGHT) || KEYMANAGER->isOnceKeyUp(VK_UP) || KEYMANAGER->isOnceKeyUp(VK_DOWN)) //움직임이 바뀔때 마다 프레임 초기화
 	{
 		frameX = 0;
@@ -51,7 +115,6 @@ void Player::update()
 
 	if (KEYMANAGER->isStayKeyDown(VK_LEFT)) //frameX = 0, 2: STAND, 
 	{										//frameX = 1, 3: MOVE
-		x -= 3;
 
 		if (count++ >= 15)
 		{
@@ -71,8 +134,7 @@ void Player::update()
 
 	if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
 	{
-		x += 3;
-
+	
 		if (count++ >= 15)
 		{
 			count = 0;
@@ -91,8 +153,7 @@ void Player::update()
 
 	if (KEYMANAGER->isStayKeyDown(VK_UP))
 	{
-		y -= 3;
-
+		
 		if (count++ >= 15)
 		{
 			count = 0;
@@ -111,8 +172,7 @@ void Player::update()
 
 	if (KEYMANAGER->isStayKeyDown(VK_DOWN))
 	{
-		y += 3;
-
+	
 		if (count++ >= 15)
 		{
 			count = 0;
@@ -128,38 +188,36 @@ void Player::update()
 			img->setFrameY(frameY);
 		}
 	}
-
-	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
-	{
-		
-		for (int i = 0; i < 20; i++)
-		{
-			for (int j = 0; j < 20; j++)
-			{
-				if (i * 64 < x + 35 && (i + 1) * 64 > x + 35)
-				{
-					if (j * 64 < y + 100 && (j + 1) * 64 > y + 100)
-					{
-						if (map[i][j] == false)
-						{
-							map[i][j] = true;
-							b->setBomb(i * 64, j * 64);
-						}
-					}
-				}
-			}
-		}
-	}
-	RECT temp;
-	if (IntersectRect(&temp, &rc, &TILEMANAGER->GetTileList("WaterStage")[0][6].GetTileRect()))
-	{
-		
-		TILEMANAGER->GetTileList("WaterStage")[0][6].DestroyBlock();
-		
-	}
-	b->update();
 }
 
+void Player::setBomb() // 캐릭터의 폭탄을 담당함
+{
+	//if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	//{
+
+	//	for (int i = 0; i < 15; i++)
+	//	{
+	//		for (int j = 0; j < 10; j++)
+	//		{
+	//			if (i * 64 < x + 35 && (i + 1) * 64 > x + 35)
+	//			{
+	//				if (j * 64 < y + 100 && (j + 1) * 64 > y + 100)
+	//				{
+	//					if (map[i][j] == false)
+	//					{
+	//						map[i][j] = true;
+	//						b->setBomb(i * 64, j * 64);
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	{
+		b->setBomb(TILEMANAGER->GetTileList("WaterStage")[arrayX][arrayY].GetTileRect().left, TILEMANAGER->GetTileList("WaterStage")[arrayX][arrayY].GetTileRect().top);
+	}
+}
 
 void Player::render()
 {
@@ -170,6 +228,9 @@ void Player::render()
 		Rectangle(getMemDC(), rc.left, rc.top, rc.right, rc.bottom);
 	}
 
+	char str[128];
+	sprintf(str, "(Y:%d, X:%d)", arrayY, arrayX);
+	TextOut(getMemDC(), 10, 100, str, strlen(str));
 	b->render();
 }
 void Player::release()

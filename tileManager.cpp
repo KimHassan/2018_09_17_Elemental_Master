@@ -9,23 +9,36 @@
 
 HRESULT tileManager::init()
 {
-	tileFirstX = 0;
-	tileFirstY = 0;
+	tileFirstX = GAMEWINDOWX;
+	tileFirstY =GAMEWINDOWY;
 
-	lastArrX = 20;
-	lastArrY = 20;
+	lastArrX = 15;
+	lastArrY = 10;
 
-	int tempPattern[400] = //0 = TILE, 1 = BLOCK, 2 = WALL, 3 = EMPTY
+	//int tempPattern[400] = //0 = TILE, 1 = BLOCK, 2 = WALL, 3 = EMPTY
+	//{
+	//	2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 2, 1, 0,
+	//	1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0, 0, 0, 2, 1, 0,
+	//	0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0,
+	//	0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0
+
+
+	//};
+	int tempPattern[150] = //0 = TILE, 1 = BLOCK, 2 = WALL, 3 = EMPTY
 	{
-		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 2, 1, 0,
-		1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0, 0, 0, 2, 1, 0,
-		0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0,
-		0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0
-
-
+		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1,
+		1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0,
+		0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 2,
+		0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1,
+		1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0,
+		0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 2,
+		0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1,
+		1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0
 	};
-
 	maketilestage("WaterStage", tempPattern);
+	maketilestage("FireStage", tempPattern);
 
 	return S_OK;
 }
@@ -37,9 +50,9 @@ void tileManager::render(const char *stageName)
 
 	auto it = tileSets.find(stageName)->second;
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < lastArrY; i++)
 	{
-		for (int j = 0; j < 20; j++)
+		for (int j = 0; j < lastArrX; j++)
 		{
 			if (it[i][j].GetCheck() == true)
 				it[i][j].render();
@@ -79,7 +92,30 @@ void tileManager::maketilestage(const char *stageName, int *tilePattern)
 	}
 	else if (stageName == "FireStage")
 	{
+		for (int y = 0; y < lastArrY; y++)
+		{
+			for (int x = 0; x < lastArrX; x++)
+			{
+				if (tilePattern[y * lastArrX + x] == TILE)
+				{
+					pushTile("FireStage", "wTile1", y, x, TILE, true);
+				}
+				else if (tilePattern[y * lastArrX + x] == BLOCK)
+				{
 
+					pushTile("FireStage", "wBlock", y, x, BLOCK, true);
+				}
+				else if (tilePattern[y * lastArrX + x] == WALL)
+				{
+
+					pushTile("FireStage", "wWall", y, x, WALL, true);
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
 	}
 
 }

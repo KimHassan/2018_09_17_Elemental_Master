@@ -41,6 +41,10 @@ using namespace OCTA_UTIL;
 #define WINSTARTY 50
 #define WINSIZEX 1280
 #define WINSIZEY 720
+#define GAMEWINDOWX 160 // 타일맵 시작위치
+#define GAMEWINDOWY 40	// 타일맵 시작위치
+#define GAMEWINDOWWIDTH  960 // 타일맵 크기
+#define GAMEWINDOWHEIGHT 640 // 타일맵 크기
 #define WINSTYLE WS_CAPTION | WS_SYSMENU
 
 #define RND randomFunction::getSingeton()

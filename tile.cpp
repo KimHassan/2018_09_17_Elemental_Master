@@ -52,10 +52,10 @@ void tile::render()
 		if (KEYMANAGER->isToggleKey(VK_F1))
 		{
 			char str[128];
-			sprintf(str, "(%d,%d)", arrayY, arrayX);
+			sprintf(str, "(Y:%d,X:%d)", arrayY, arrayX);
 			
 			Rectangle(getMemDC(), tileRect.left, tileRect.top, tileRect.right, tileRect.bottom);
-			TextOut(getMemDC(), tileRect.left+20, tileRect.top+10, str, strlen(str));
+			TextOut(getMemDC(), tileRect.left+5, tileRect.top+10, str, strlen(str));
 		}
 	}
 	
