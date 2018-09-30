@@ -6,6 +6,8 @@ enum TILESTATE
 	TILE = 0, //그냥 타일
 	BLOCK = 1,	//부술 수 있는 타일
 	WALL = 2,		//부술 수 없는 타일
+	BOMB = 3,
+	BOOM = 4
 
 };
 
@@ -36,7 +38,9 @@ public:
 	RECT GetTileRect();
 	int GetTileState();
 	void DestroyBlock();
-
+	void ChangeToBomb();
+	void ChangeToBoom();
+	void ChangeToTile();
 	int GetSizeX() { return sizeX; }
 	int GetSizeY() { return sizeY; }
 public:

@@ -8,6 +8,7 @@ class playGround : public gameNode
 private:
 	Player *p1;
 	Player2 *p2;
+	string stageName;
 
 
 public:

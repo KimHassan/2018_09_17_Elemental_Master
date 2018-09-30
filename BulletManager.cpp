@@ -16,6 +16,7 @@ void BulletManager::setBomb(int arrayY, int arrayX)
 
 	Bomb *bomb = new Bomb;
 	bomb->init(arrayY, arrayX);
+	TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToBomb();
 	vBomb.push_back(bomb);
 }
 void BulletManager::setBoom(int arrayY, int arrayX)
@@ -24,6 +25,7 @@ void BulletManager::setBoom(int arrayY, int arrayX)
 	Boom *boom = new Boom;
 	boom->init(arrayY, arrayX);
 	vBoom.push_back(boom);
+	TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToBoom();
 
 }
 void BulletManager::update()
@@ -42,6 +44,9 @@ void BulletManager::update()
 			for (int j = 0; j < power; j++)
 			{
 				setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX());
+				if (j == 0)
+					if (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()].GetTileState() == BLOCK)
+						TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()].ChangeToBomb();
 				if (j > 0)
 				{
 					if (LeftDestroy == false)
@@ -54,10 +59,13 @@ void BulletManager::update()
 						case BLOCK:
 							LeftDestroy = true;
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX()-j);
-							TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()-j].DestroyBlock();
+							
 							break;
 						case TILE:
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX()-j);
+							break;
+						case BOMB:
+							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX() - j);
 							break;
 						}
 					}
@@ -71,9 +79,11 @@ void BulletManager::update()
 						case BLOCK:
 							RightDestroy = true;
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX() + j);
-							TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX() + j].DestroyBlock();
 							break;
 						case TILE:
+							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX() + j);
+							break;
+						case BOMB:
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX() + j);
 							break;
 						}
@@ -88,9 +98,12 @@ void BulletManager::update()
 						case BLOCK:
 							UpDestroy = true;
 							setBoom(vBomb[i]->getArrayY() - j, vBomb[i]->getArrayX());
-							TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY() - j][vBomb[i]->getArrayX()].DestroyBlock();
+							
 							break;
 						case TILE:
+							setBoom(vBomb[i]->getArrayY() - j, vBomb[i]->getArrayX());
+							break;
+						case BOMB:
 							setBoom(vBomb[i]->getArrayY() - j, vBomb[i]->getArrayX());
 							break;
 						}
@@ -105,9 +118,12 @@ void BulletManager::update()
 						case BLOCK:
 							DownDestroy = true;
 							setBoom(vBomb[i]->getArrayY() + j, vBomb[i]->getArrayX());
-							TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY() + j][vBomb[i]->getArrayX()].DestroyBlock();
+							
 							break;
 						case TILE:
+							setBoom(vBomb[i]->getArrayY() + j, vBomb[i]->getArrayX());
+							break;
+						case BOMB:
 							setBoom(vBomb[i]->getArrayY() + j, vBomb[i]->getArrayX());
 							break;
 						}

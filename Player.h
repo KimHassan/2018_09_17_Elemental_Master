@@ -1,6 +1,7 @@
 #pragma once
 #include "gameNode.h"
 #include "BulletManager.h"
+#include "Heart.h"
 class Player :
 	public gameNode
 {
@@ -20,15 +21,19 @@ private:
 	RECT rc;
 	BulletManager *b;
 
+	Heart *hp;
+
+	string stageName;
 public:
 	Player();
 	~Player();
 
-	HRESULT init(int _posX, int _posY);
+	HRESULT init(string _stageName, int _arrayY, int _arrayX);
 	void update();
 	void MoveUpdate();
 	void FrameUpdate();
 	void setBomb();
+	void Dead();
 	void render();
 	void release();
 	int getX() { return x; }

@@ -33,6 +33,7 @@ void Boom::update()
 	if (frameX >= 3)
 	{
 		end = true;
+		TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToTile();
 		release();
 	}
 }

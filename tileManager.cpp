@@ -7,7 +7,7 @@
 //"wTile2"
 //"wTile3"
 
-HRESULT tileManager::init()
+HRESULT tileManager::init(string _stageName)
 {
 	tileFirstX = GAMEWINDOWX;
 	tileFirstY =GAMEWINDOWY;
@@ -22,7 +22,7 @@ HRESULT tileManager::init()
 	//	0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0,
 	//	0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0
 
-
+	stageName = _stageName;
 	//};
 	int tempPattern[150] = //0 = TILE, 1 = BLOCK, 2 = WALL, 3 = EMPTY
 	{
@@ -37,13 +37,14 @@ HRESULT tileManager::init()
 		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 2, 1,
 		1, 2, 0, 0, 2, 2, 0, 0, 2, 1, 0, 1, 2, 0, 0
 	};
-	maketilestage("WaterStage", tempPattern);
-	maketilestage("FireStage", tempPattern);
+	//maketilestage("WaterStage", tempPattern);
+	//maketilestage("FireStage", tempPattern);
+	maketilestage(stageName.c_str(), tempPattern);
 
 	return S_OK;
 }
 
-void tileManager::render(const char *stageName)
+void tileManager::render(const char *_stageName)
 {
 	if (tileSets.find(stageName) == tileSets.end())
 		return;
@@ -61,7 +62,7 @@ void tileManager::render(const char *stageName)
 
 }
 
-void tileManager::maketilestage(const char *stageName, int *tilePattern)
+void tileManager::maketilestage(const char *_stageName, int *tilePattern)
 {
 	if (stageName == "WaterStage")
 	{
@@ -90,6 +91,7 @@ void tileManager::maketilestage(const char *stageName, int *tilePattern)
 			}
 		}
 	}
+
 	else if (stageName == "FireStage")
 	{
 		for (int y = 0; y < lastArrY; y++)
@@ -98,17 +100,17 @@ void tileManager::maketilestage(const char *stageName, int *tilePattern)
 			{
 				if (tilePattern[y * lastArrX + x] == TILE)
 				{
-					pushTile("FireStage", "wTile1", y, x, TILE, true);
+					pushTile("FireStage", "fTile", y, x, TILE, true);
 				}
 				else if (tilePattern[y * lastArrX + x] == BLOCK)
 				{
 
-					pushTile("FireStage", "wBlock", y, x, BLOCK, true);
+					pushTile("FireStage", "fBlock1", y, x, BLOCK, true);
 				}
 				else if (tilePattern[y * lastArrX + x] == WALL)
 				{
 
-					pushTile("FireStage", "wWall", y, x, WALL, true);
+					pushTile("FireStage", "fWall", y, x, WALL, true);
 				}
 				else
 				{
@@ -120,7 +122,7 @@ void tileManager::maketilestage(const char *stageName, int *tilePattern)
 
 }
 
-void tileManager::pushTile(const char *stageName, const char *imageName, int _arrayY, int _arrayX, int _state, bool _setCheck)
+void tileManager::pushTile(const char *_stageName, const char *imageName, int _arrayY, int _arrayX, int _state, bool _setCheck)
 {
 	auto wIter = tileSets.find(stageName)->second;
 
@@ -133,7 +135,7 @@ void tileManager::pushTile(const char *stageName, const char *imageName, int _ar
 	wIter[_arrayY][_arrayX] = t;
 }
 
-tile** tileManager::GetTileList(const char * stageName)
+tile** tileManager::GetTileList(const char * _stageName)
 {
 	auto it = tileSets.find(stageName)->second;
 

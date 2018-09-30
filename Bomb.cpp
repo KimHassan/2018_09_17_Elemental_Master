@@ -41,6 +41,7 @@ void Bomb::update()
 	if (frameX >= 4)
 	{
 		end = true;
+		TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToTile();
 		release();
 	}
 
