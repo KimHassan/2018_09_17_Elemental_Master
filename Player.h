@@ -23,6 +23,7 @@ private:
 
 	Heart *hp;
 
+	bool isDead;
 	string stageName;
 public:
 	Player();

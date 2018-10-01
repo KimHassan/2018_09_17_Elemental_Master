@@ -20,8 +20,9 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addImage("wTile2", "image/Water_Tile_2.bmp", 64, 64, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("wTile3", "image/Water_Tile_3.bmp", 64, 64, true, RGB(255, 0, 255));
 
-	IMAGEMANAGER->addImage("fBlock1", "image/Water_Block1.bmp", 64, 78, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("fBlock2", "image/Water_Block2.bmp", 64, 78, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addImage("fBlock1", "image/Fire_Block1.bmp", 64, 78, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("fBlock2", "image/Fire_Block2.bmp", 64, 78, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("fWall", "image/Fire_Wall.bmp", 64, 78, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("fTile", "image/Fire_Tile.bmp", 64, 64, true, RGB(255, 0, 255));
 
@@ -35,7 +36,7 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addFrameImage("Player1", "image/character1.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Player2", "image/character2.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Bub",     "image/BlueBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
-	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 210, 64, 3, 1, true, RGB(0, 0, 0));
+	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
 
 	SCENEMANAGER->addScene("TitleScene", new TitleScene);
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);

@@ -13,12 +13,12 @@ PVPScene::~PVPScene()
 
 HRESULT PVPScene::init()
 {
-	TILEMANAGER->init("WaterStage");
+	TILEMANAGER->init("FireStage");
 	p1 = new Player;
 	p1->init("WaterStage",3,1);
 
 	p2 = new Player2;
-	p2->init("WaterStage",8,3);
+	p2->init("WaterStage",6,10);
 
 	return S_OK;
 }
