@@ -97,8 +97,11 @@
     <ClInclude Include="Player2.h" />
     <ClInclude Include="playGround.h" />
     <ClInclude Include="progressBar.h" />
+    <ClInclude Include="PVEScene.h" />
+    <ClInclude Include="PVPScene.h" />
     <ClInclude Include="randomFunction.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="sceneManager.h" />
     <ClInclude Include="singletonBase.h" />
     <ClInclude Include="soundManager.h" />
@@ -108,6 +111,7 @@
     <ClInclude Include="tileManager.h" />
     <ClInclude Include="timeManager.h" />
     <ClInclude Include="timer.h" />
+    <ClInclude Include="TitleScene.h" />
     <ClInclude Include="txtData.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
@@ -131,6 +135,9 @@
     <ClCompile Include="Player2.cpp" />
     <ClCompile Include="playGround.cpp" />
     <ClCompile Include="progressBar.cpp" />
+    <ClCompile Include="PVEScene.cpp" />
+    <ClCompile Include="PVPScene.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="sceneManager.cpp" />
     <ClCompile Include="soundManager.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -141,6 +148,7 @@
     <ClCompile Include="tileManager.cpp" />
     <ClCompile Include="timeManager.cpp" />
     <ClCompile Include="timer.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="txtData.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>

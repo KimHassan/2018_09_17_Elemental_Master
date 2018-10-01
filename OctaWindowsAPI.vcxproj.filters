@@ -64,6 +64,9 @@
     <Filter Include="playGround\inGameScene\bomb">
       <UniqueIdentifier>{d11d7e6e-b9ca-4346-a4e2-7780e02cce84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="playGround\inGameScene\Scene">
+      <UniqueIdentifier>{68ef663f-f36e-4e28-9d4c-5fb43d7738ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -165,6 +168,18 @@
     <ClInclude Include="Heart.h">
       <Filter>playGround\inGameScene\player</Filter>
     </ClInclude>
+    <ClInclude Include="PVEScene.h">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PVPScene.h">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -250,6 +265,18 @@
     </ClCompile>
     <ClCompile Include="Heart.cpp">
       <Filter>playGround\inGameScene\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PVEScene.cpp">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PVPScene.cpp">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>playGround\inGameScene\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>playGround\inGameScene\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

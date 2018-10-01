@@ -1,15 +1,11 @@
 #pragma once
 #include "gameNode.h"
-#include "Player.h"
-#include "Player2.h"
-
+#include "TitleScene.h"
+#include "PVPScene.h"
+#include "PVEScene.h"
 class playGround : public gameNode
 {
 private:
-	Player *p1;
-	Player2 *p2;
-	string stageName;
-
 
 public:
 	virtual HRESULT init();

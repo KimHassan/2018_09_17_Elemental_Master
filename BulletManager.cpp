@@ -51,6 +51,8 @@ void BulletManager::update()
 				{
 					if (LeftDestroy == false)
 					{
+						if (vBomb[i]->getArrayX() - j <= 0)
+							LeftDestroy = true;
 						switch (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()-j].GetTileState())
 						{
 						case WALL:
@@ -71,6 +73,8 @@ void BulletManager::update()
 					}
 					if (RightDestroy == false)
 					{
+						if (vBomb[i]->getArrayX() + j >= TILEMANAGER->GetTileLastArrX())
+							RightDestroy = true;;
 						switch (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()+ j].GetTileState())
 						{
 						case WALL:
@@ -90,6 +94,8 @@ void BulletManager::update()
 					}
 					if (UpDestroy == false)
 					{
+						if (vBomb[i]->getArrayY() - j <= 0)
+							UpDestroy = true;
 						switch (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY() - j][vBomb[i]->getArrayX()].GetTileState())
 						{
 						case WALL:
@@ -110,6 +116,9 @@ void BulletManager::update()
 					}
 					if (DownDestroy == false)
 					{
+						
+						if (vBomb[i]->getArrayY() + j >= TILEMANAGER->GetTileLastArrY())
+							DownDestroy = true;
 						switch (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY() + j][vBomb[i]->getArrayX()].GetTileState())
 						{
 						case WALL:

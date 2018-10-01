@@ -1,10 +1,2 @@
-﻿  OctaWindowsAPI.cpp
-  Player.cpp
-d:\github\2018_09_17_elemental_master\player.cpp(242): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
-  Player2.cpp
-d:\github\2018_09_17_elemental_master\player2.cpp(241): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
-  playGround.cpp
-  코드를 생성하고 있습니다...
-  OctaWindowsAPI.vcxproj -> D:\GitHub\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
+﻿  playGround.cpp
+  OctaWindowsAPI.vcxproj -> C:\Users\bond kim\source\repos\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
