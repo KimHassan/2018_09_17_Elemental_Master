@@ -105,12 +105,12 @@ void tileManager::maketilestage(const char *_stageName, int *tilePattern)
 				else if (tilePattern[y * lastArrX + x] == BLOCK)
 				{
 
-					pushTile("FireStage", "fBlock1", y, x, BLOCK, true);
+					pushTile("FireStage", "fBlock", y, x, BLOCK, true);
 				}
 				else if (tilePattern[y * lastArrX + x] == WALL)
 				{
 
-					pushTile("FireStage", "fWall", y, x, WALL, true);
+					pushTile("FireStage", "fWall1", y, x, WALL, true);
 				}
 				else
 				{

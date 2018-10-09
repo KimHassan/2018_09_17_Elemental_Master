@@ -8,6 +8,8 @@ class Player :
 private:
 	image *img;
 	tile *tile;
+	image *dead_sign;
+
 
 	int x, y;
 	int width, height;
@@ -24,6 +26,8 @@ private:
 	Heart *hp;
 
 	bool isDead;
+	bool isReverse;
+	int alpha;
 	string stageName;
 public:
 	Player();

@@ -81,8 +81,8 @@ void tile::ChangeToBomb()
 
 void tile::ChangeToBoom()
 {
-	if (state == BOMB)
-		return;
+	//if (state == BOMB)
+	//	return;
 	ChangeToTile();
 	state = TILESTATE::BOOM;
 }

@@ -74,7 +74,7 @@ void BulletManager::update()
 					if (RightDestroy == false)
 					{
 						if (vBomb[i]->getArrayX() + j >= TILEMANAGER->GetTileLastArrX())
-							RightDestroy = true;;
+							RightDestroy = true;
 						switch (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()+ j].GetTileState())
 						{
 						case WALL:

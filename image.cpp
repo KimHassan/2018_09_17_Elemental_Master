@@ -583,12 +583,45 @@ void image::alphaRender(HDC hdc, BYTE alpha)
 	}
 }
 
+void image::frameAlphaRender(HDC hdc, int destX, int destY, int currentFrameX, int currentFrameY, BYTE alpha)
+{
+	//실제 이미지에 알파블렌드를 접목시켜주는 함수
+	_blendFunc.SourceConstantAlpha = alpha;		//0 ~ 255 로 투명도를 가진다
+	_imageInfo->currentFrameX = currentFrameX;
+	_imageInfo->currentFrameY = currentFrameY;
+
+	if ( _trans )
+	{
+		BitBlt(_blendImage->hMemDC, 0, 0, _imageInfo->frameWidth, _imageInfo->frameHeight,
+			hdc, destX, destY, SRCCOPY);
+
+		GdiTransparentBlt(
+			hdc,
+			destX,
+			destY,
+			_imageInfo->frameWidth,
+			_imageInfo->frameHeight,
+			_imageInfo->hMemDC,
+			_imageInfo->currentFrameX * _imageInfo->frameWidth,
+			_imageInfo->currentFrameY * _imageInfo->frameHeight,
+			_imageInfo->frameWidth,
+			_imageInfo->frameHeight,
+			_transColor);
+
+		AlphaBlend(hdc, destX, destY, _imageInfo->frameWidth, _imageInfo->frameHeight, _blendImage->hMemDC, 0, 0,  _imageInfo->frameWidth,  _imageInfo->frameHeight, _blendFunc);
+	}
+	else
+	{
+		AlphaBlend(hdc, destX, destY, _imageInfo->frameWidth, _imageInfo->frameHeight, _blendImage->hMemDC, 0, 0, _imageInfo->currentFrameX *  _imageInfo->frameWidth, _imageInfo->currentFrameY *  _imageInfo->frameHeight, _blendFunc);
+	}
+}
+
 void image::alphaRender(HDC hdc, int destX, int destY, BYTE alpha)
 {
 	//실제 이미지에 알파블렌드를 접목시켜주는 함수
 	_blendFunc.SourceConstantAlpha = alpha;		//0 ~ 255 로 투명도를 가진다
 
-	if ( _trans )
+	if (_trans)
 	{
 		BitBlt(_blendImage->hMemDC, 0, 0, _imageInfo->width, _imageInfo->height,
 			hdc, destX, destY, SRCCOPY);

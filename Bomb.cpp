@@ -33,6 +33,10 @@ void Bomb::update()
 {
 	count++;
 
+	if (TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].GetTileState() == BOOM)
+	{
+		frameX = 4;
+	}
 	if (count % 30 == 0 && count != 0)
 	{
 		frameX++;

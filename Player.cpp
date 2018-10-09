@@ -40,15 +40,57 @@ HRESULT Player::init(string _stageName,int _arrayY,int _arrayX)
 
 	hp = new Heart;
 	hp->init("Player1_Hp", GAMEWINDOWX / 2 - 25, 150, 5);
+
+	isDead = false;
+	isReverse = false;
+	alpha = 0;
+
+	dead_sign = IMAGEMANAGER->findImage("dead");
 	return S_OK;
 }
 void Player::update()
 {
+	
 	rc = RectMake(x+10, y+70, 50, 30);
+
 	center = PointMake(x + 35, rc.bottom-5);
-	MoveUpdate();
-	FrameUpdate();
-	setBomb();
+	if (isDead == true)
+	{
+		if (isReverse == false)
+		{
+			alpha += 3;
+			if (alpha >= 255)
+			{
+				arrayY = 5;
+				arrayX = 1;
+				x = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().left;
+				y = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().top;
+
+				isReverse = true;
+
+			}
+			
+		}
+		else
+		{
+			alpha -= 3;
+			if (alpha < 0)
+			{
+				alpha = 0;
+				isReverse = false;
+				isDead = false;
+
+			}
+		}
+		
+		
+	}
+	else
+	{
+		MoveUpdate();
+		FrameUpdate();
+		setBomb();
+	}
 	b->update();
 
 
@@ -221,18 +263,16 @@ void Player::setBomb() // Ä³¸¯ÅÍÀÇ ÆøÅºÀ» ´ã´çÇÔ
 void Player::Dead()
 {
 	hp->Hit();
-
-	arrayY = 5;
-	arrayX = 1;
-	x = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().left;
-	y = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().top;
+	isDead = true;
 
 	
 }
 void Player::render()
 {
-	img->frameRender(getMemDC(), x, y, frameX, frameY);
-
+	//if(isDead == false)
+	//	img->frameRender(getMemDC(), x, y, frameX, frameY);
+	//else
+		img->frameAlphaRender(getMemDC(), x, y, frameX, frameY,alpha);
 	if (KEYMANAGER->isToggleKey(VK_F1))
 	{
 		Rectangle(getMemDC(), rc.left, rc.top, rc.right, rc.bottom);
@@ -243,6 +283,13 @@ void Player::render()
 	TextOut(getMemDC(), 10, 100, str, strlen(str));
 	b->render();
 	hp->render();
+
+	if (isDead)
+	{
+		dead_sign->alphaRender(getMemDC(),x+35,y-30, 255-alpha);
+
+	}
+
 }
 void Player::release()
 {
