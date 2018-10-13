@@ -2,9 +2,9 @@
 #include "Boom.h"
 
 
-HRESULT Boom::init(int _arrayY, int _arrayX)
+HRESULT Boom::init(string str,int _arrayY, int _arrayX)
 {
-	img = IMAGEMANAGER->findImage("Boom");
+	img = IMAGEMANAGER->findImage(str);
 
 	arrayX = _arrayX;
 	arrayY = _arrayY;
@@ -25,7 +25,7 @@ void Boom::update()
 {
 	count++;
 
-	if (count % 30 == 0 && count != 0)
+	if (count % 20 == 0 && count != 0)
 	{
 		frameX++;
 	}

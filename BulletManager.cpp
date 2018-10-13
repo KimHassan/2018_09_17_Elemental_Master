@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "BulletManager.h"
 
-HRESULT BulletManager::init(UINT _max)
+HRESULT BulletManager::init(string _boomName, string _bombName, UINT _max)
 {
 	max = _max;
 	power = 3;
 	count = 0;
+	
+	boomName = _boomName;
+	bombName = _bombName;
 	return S_OK;
 
 }
@@ -15,7 +18,7 @@ void BulletManager::setBomb(int arrayY, int arrayX)
 		return;
 
 	Bomb *bomb = new Bomb;
-	bomb->init(arrayY, arrayX);
+	bomb->init(bombName, arrayY, arrayX);
 	TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToBomb();
 	vBomb.push_back(bomb);
 }
@@ -23,7 +26,7 @@ void BulletManager::setBoom(int arrayY, int arrayX)
 {
 
 	Boom *boom = new Boom;
-	boom->init(arrayY, arrayX);
+	boom->init(boomName,arrayY, arrayX);
 	vBoom.push_back(boom);
 	TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToBoom();
 

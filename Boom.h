@@ -14,7 +14,7 @@ private:
 	bool end;
 
 public:
-	HRESULT init(int _arrayY, int _arrayX);
+	HRESULT init(string str,int _arrayY, int _arrayX);
 	void update();
 	void render();
 	void release();

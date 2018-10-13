@@ -416,8 +416,8 @@ void image::scaleRender(HDC hdc, int destX, int destY, int scaleX, int scaleY)
 		TransparentBlt(hdc,		//복사될 DC영역
 			destX,					//(이미지 뿌려질)복사될 X좌표(left)
 			destY,					//(이미지 뿌려질)복사될 Y좌표(top)
-			scaleX,
-			scaleY,
+			_imageInfo->width * scaleX,
+			_imageInfo->height * scaleY,
 			_imageInfo->hMemDC,		//복사해올 DC영역
 			0, 0,					//복사해올 좌표 X, Y
 			_imageInfo->width,
@@ -608,7 +608,7 @@ void image::frameAlphaRender(HDC hdc, int destX, int destY, int currentFrameX, i
 			_imageInfo->frameHeight,
 			_transColor);
 
-		AlphaBlend(hdc, destX, destY, _imageInfo->frameWidth, _imageInfo->frameHeight, _blendImage->hMemDC, 0, 0,  _imageInfo->frameWidth,  _imageInfo->frameHeight, _blendFunc);
+		AlphaBlend(hdc, destX, destY, _imageInfo->frameWidth, _imageInfo->frameHeight, _blendImage->hMemDC, 0, 0,_imageInfo->frameWidth,  _imageInfo->frameHeight, _blendFunc);
 	}
 	else
 	{

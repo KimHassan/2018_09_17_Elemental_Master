@@ -17,7 +17,7 @@ public:
 	Bomb();
 	~Bomb();
 
-	HRESULT init(int _posX, int _posY);
+	HRESULT init(string str, int _posX, int _posY);
 	void update();
 	void render();
 	void release();

@@ -39,12 +39,22 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addFrameImage("Bub",     "image/BlueBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
 
+	IMAGEMANAGER->addImage("Title_Scene", "image/title_scene.bmp", 640, 380, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Title_Scene_Left", "image/left(70,35).bmp", 253, 290, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Title_Scene_Right", "image/right(323,40).bmp", 221, 238, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Title_Scene_How_To", "image/how_to_button(50,84).bmp", 48, 29, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Black", "image/black.bmp", 1280, 720, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addImage("p1Win", "image/p1Win.bmp", 880, 300, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("p2Win", "image/p2Win.bmp", 880, 300, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("gameStart", "image/gameStart.bmp", 880, 300, true, RGB(255, 0, 255));
+
 	SCENEMANAGER->addScene("TitleScene", new TitleScene);
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);
 	SCENEMANAGER->addScene("PVEScene", new PVEScene);
 
 
-	SCENEMANAGER->changeScene("PVPScene");
+	SCENEMANAGER->changeScene("TitleScene");
 
 	
 

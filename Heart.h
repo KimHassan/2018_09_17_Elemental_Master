@@ -13,7 +13,7 @@ public:
 	void render();
 	void Hit();
 	void Heal();
-	
+	void release();
 	int GetCurrentHp()
 	{
 		return currentHp;

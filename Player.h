@@ -1,48 +1,18 @@
 #pragma once
-#include "gameNode.h"
-#include "BulletManager.h"
-#include "Heart.h"
+#include "p_Player.h"
+
 class Player :
-	public gameNode
+	public p_Player
 {
-private:
-	image *img;
-	tile *tile;
-	image *dead_sign;
 
-
-	int x, y;
-	int width, height;
-	POINT center;
-	int frameX, frameY;
-	int arrayX, arrayY;
-	int map[20][20];
-
-	UINT speed;
-	UINT count;
-	RECT rc;
-	BulletManager *b;
-
-	Heart *hp;
-
-	bool isDead;
-	bool isReverse;
-	int alpha;
-	string stageName;
 public:
 	Player();
 	~Player();
 
-	HRESULT init(string _stageName, int _arrayY, int _arrayX);
-	void update();
-	void MoveUpdate();
-	void FrameUpdate();
-	void setBomb();
-	void Dead();
-	void render();
-	void release();
-	int getX() { return x; }
-	int getY() { return y; }
-	RECT getRect() { return rc; }
-	
+	virtual HRESULT init(string _stageName, int _arrayY, int _arrayX);
+	virtual void MoveUpdate();
+	virtual void FrameUpdate();
+	virtual void setBomb();
+	virtual void respawn();
+
 };

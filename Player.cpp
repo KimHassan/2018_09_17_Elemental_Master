@@ -14,108 +14,23 @@ Player::~Player()
 
 HRESULT Player::init(string _stageName,int _arrayY,int _arrayX)
 {
+	
+	p_Player::init(_stageName, _arrayY,_arrayX);
 	img = IMAGEMANAGER->findImage("Player1");
-	stageName = _stageName;
-
-	x = TILEMANAGER->GetTileList(stageName.c_str())[_arrayY][_arrayX].GetTileRect().left;
-	y = TILEMANAGER->GetTileList(stageName.c_str())[_arrayY][_arrayX].GetTileRect().top;
-
-	arrayY = _arrayY;
-	arrayX = _arrayX;
-	frameX = 0;
-	frameY = 1;
-
 	b = new BulletManager;
-	b->init(10);
-
-	for (int i = 0; i < 15; i++)
-	{
-		for (int j = 0; j < 10; j++)
-		{
-			map[i][j] = false;
-		}
-	}
-
-	speed = 3;
+	b->init("Boom","Bub",10);
 
 	hp = new Heart;
-	hp->init("Player1_Hp", GAMEWINDOWX / 2 - 25, 150, 5);
+	hp->init("Player1_Hp", GAMEWINDOWX / 2 - 25, 150, 1);
 
-	isDead = false;
-	isReverse = false;
-	alpha = 0;
-
-	dead_sign = IMAGEMANAGER->findImage("dead");
 	return S_OK;
-}
-void Player::update()
-{
-	
-	rc = RectMake(x+10, y+70, 50, 30);
-
-	center = PointMake(x + 35, rc.bottom-5);
-	if (isDead == true)
-	{
-		if (isReverse == false)
-		{
-			alpha += 3;
-			if (alpha >= 255)
-			{
-				arrayY = 5;
-				arrayX = 1;
-				x = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().left;
-				y = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().top;
-
-				isReverse = true;
-
-			}
-			
-		}
-		else
-		{
-			alpha -= 3;
-			if (alpha < 0)
-			{
-				alpha = 0;
-				isReverse = false;
-				isDead = false;
-
-			}
-		}
-		
-		
-	}
-	else
-	{
-		MoveUpdate();
-		FrameUpdate();
-		setBomb();
-	}
-	b->update();
-
-
 }
 
 
 void Player::MoveUpdate()// 캐릭터의 이동을 담당함
 {
 
-	for (int i = 0; i < TILEMANAGER->GetTileLastArrY(); i++)
-	{
-		for (int j = 0; j < TILEMANAGER->GetTileLastArrX(); j++)
-		{
-			if (PtInRect(&TILEMANAGER->GetTileList(stageName.c_str())[i][j].GetTileRect(), center))
-			{
-				arrayX = j;
-				arrayY = i;
-			}
-		}
-	}
-
-	if (TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileState() == BOOM)
-	{
-		Dead();
-	}
+	p_Player::MoveUpdate();
 	RECT temp;
 
 	if (KEYMANAGER->isStayKeyDown('A'))
@@ -260,39 +175,10 @@ void Player::setBomb() // 캐릭터의 폭탄을 담당함
 	}
 }
 
-void Player::Dead()
+void Player::respawn()
 {
-	hp->Hit();
-	isDead = true;
-
-	
+	arrayY = 5;
+	arrayX = 1;
+	x = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().left;
+	y = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().top;
 }
-void Player::render()
-{
-	//if(isDead == false)
-	//	img->frameRender(getMemDC(), x, y, frameX, frameY);
-	//else
-		img->frameAlphaRender(getMemDC(), x, y, frameX, frameY,alpha);
-	if (KEYMANAGER->isToggleKey(VK_F1))
-	{
-		Rectangle(getMemDC(), rc.left, rc.top, rc.right, rc.bottom);
-	}
-
-	char str[128];
-	sprintf(str, "(Y:%d, X:%d)", arrayY, arrayX);
-	TextOut(getMemDC(), 10, 100, str, strlen(str));
-	b->render();
-	hp->render();
-
-	if (isDead)
-	{
-		dead_sign->alphaRender(getMemDC(),x+35,y-30, 255-alpha);
-
-	}
-
-}
-void Player::release()
-{
-
-}
-

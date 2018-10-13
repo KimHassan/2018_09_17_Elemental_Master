@@ -10,9 +10,9 @@ Bomb::~Bomb()
 {
 }
 
-HRESULT Bomb::init(int _arrayY, int _arrayX)
+HRESULT Bomb::init(string str,int _arrayY, int _arrayX)
 {
-	img = IMAGEMANAGER->findImage("Bub");
+	img = IMAGEMANAGER->findImage(str);
 
 	arrayX = _arrayX;
 	arrayY = _arrayY;

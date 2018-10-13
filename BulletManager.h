@@ -14,11 +14,18 @@ private:
 	UINT count;
 	UINT power;
 
+	string boomName;
+	string bombName;
+
 public:
-	HRESULT init(UINT _max);
+	HRESULT init(string _boomName, string _bombName, UINT _max);
 	void setBomb(int arrayY, int arrayX);
 	void setBoom(int arrayY, int arrayX);
 	void update();
 	void render();
+	void setMax(int _max) { max = _max; }
+	void setPower(int _power) { power = _power; }
+	int getMax() {return max;}
+	int getPower() { return power; }
 	void release();
 };

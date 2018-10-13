@@ -44,3 +44,9 @@ void Heart::Heal()
 		return;
 	currentHp++;
 }
+
+void Heart::release()
+{
+	img = NULL;
+	delete img;
+}
