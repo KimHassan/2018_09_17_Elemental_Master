@@ -3,7 +3,6 @@
 #include "Player.h"
 #include "Player2.h"
 
-
 class PVPScene :
 	public Scene
 {

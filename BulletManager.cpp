@@ -16,7 +16,8 @@ void BulletManager::setBomb(int arrayY, int arrayX)
 {
 	if (vBomb.size() >= max)
 		return;
-
+	if (TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].GetTileState() == BOMB)
+		return;
 	Bomb *bomb = new Bomb;
 	bomb->init(bombName, arrayY, arrayX);
 	TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToBomb();
@@ -46,6 +47,7 @@ void BulletManager::update()
 			bool DownDestroy = false;
 			for (int j = 0; j < power; j++)
 			{
+				
 				setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX());
 				if (j == 0)
 					if (TILEMANAGER->GetTileList("WaterStage")[vBomb[i]->getArrayY()][vBomb[i]->getArrayX()].GetTileState() == BLOCK)
@@ -64,7 +66,7 @@ void BulletManager::update()
 						case BLOCK:
 							LeftDestroy = true;
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX()-j);
-							
+							ITEMMANAGER->setItem(vBomb[i]->getArrayX() - j, vBomb[i]->getArrayY());
 							break;
 						case TILE:
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX()-j);
@@ -86,6 +88,7 @@ void BulletManager::update()
 						case BLOCK:
 							RightDestroy = true;
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX() + j);
+							ITEMMANAGER->setItem(vBomb[i]->getArrayX() + j, vBomb[i]->getArrayY());
 							break;
 						case TILE:
 							setBoom(vBomb[i]->getArrayY(), vBomb[i]->getArrayX() + j);
@@ -111,7 +114,7 @@ void BulletManager::update()
 							case BLOCK:
 								UpDestroy = true;
 								setBoom(vBomb[i]->getArrayY() - j, vBomb[i]->getArrayX());
-
+								ITEMMANAGER->setItem(vBomb[i]->getArrayX(), vBomb[i]->getArrayY() - j);
 								break;
 							case TILE:
 								setBoom(vBomb[i]->getArrayY() - j, vBomb[i]->getArrayX());
@@ -135,7 +138,7 @@ void BulletManager::update()
 						case BLOCK:
 							DownDestroy = true;
 							setBoom(vBomb[i]->getArrayY() + j, vBomb[i]->getArrayX());
-							
+							ITEMMANAGER->setItem(vBomb[i]->getArrayX(), vBomb[i]->getArrayY() + j);
 							break;
 						case TILE:
 							setBoom(vBomb[i]->getArrayY() + j, vBomb[i]->getArrayX());

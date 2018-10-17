@@ -2,18 +2,26 @@
 #include "Item.h"
 
 
-HRESULT Item::init(string str,int _arrayX, int _arrayY)
+HRESULT Item::init(int _arrayX, int _arrayY)
 {
 	arrayX = _arrayX;
 	arrayY = _arrayY;
-	x = TILEMANAGER->GetTileList("w")[arrayX][arrayY].GetTileRect().left;
-	y = TILEMANAGER->GetTileList("w")[arrayX][arrayY].GetTileRect().top;
+	x = TILEMANAGER->GetTileList("w")[arrayY][arrayX].GetTileRect().left;
+	y = TILEMANAGER->GetTileList("w")[arrayY][arrayX].GetTileRect().top;
 	rc = RectMake(x, y, 64, 64);
+	count = 0;
+	maxCount = 1000;
+	isEnd = false;
 	return S_OK;
 }
 
 void Item::update()
 {
+	count++;
+	if (count > maxCount)
+	{
+		isEnd = true;
+	}
 }
 
 void Item::render()
@@ -27,7 +35,7 @@ void Item::release()
 	delete img;
 }
 
-void Item::getItem(p_Player *p)
+void Item::useItem(p_Player *p)
 {
 	
 }

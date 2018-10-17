@@ -106,7 +106,15 @@ void p_Player::MoveUpdate()// 캐릭터의 이동을 담당함
 	{
 		Dead();
 	}
-
+	RECT temp;
+	for (int i = 0; i < ITEMMANAGER->getvItem().size(); i++)
+	{
+		if (IntersectRect(&temp, &ITEMMANAGER->getvItem()[i]->getRect(), &rc))
+		{
+			ITEMMANAGER->getvItem()[i]->useItem(this);
+			ITEMMANAGER->getvItem()[i]->setIsEnd();
+		}
+	}
 	
 }
 void p_Player::FrameUpdate() // 캐릭터의 애니메이션을 담당함
@@ -144,7 +152,7 @@ void p_Player::render()
 	char str[128];
 	sprintf(str, "(Y:%d, X:%d)", arrayY, arrayX);
 	//TextOut(getMemDC(), 10, 100, str, strlen(str));
-	b->render();
+	//b->render();
 	hp->render();
 
 	if (isDead)

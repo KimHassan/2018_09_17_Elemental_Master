@@ -20,6 +20,8 @@ public:
 	void release();
 	int getX() { return x; }
 	int getY() { return y; }
+	int getArrayX() { return arrayX; }
+	int getArrayY() { return arrayY; }
 	bool getEnd() { return end; }
 	RECT getRect() { return rc; }
 

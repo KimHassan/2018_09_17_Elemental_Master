@@ -21,7 +21,6 @@ HRESULT PVPScene::init()
 	p2 = new Player2;
 	p2->init("WaterStage",6,10);
 
-	
 
 	img_p1Win		 = IMAGEMANAGER->findImage("p1Win");
 	img_p2Win		 = IMAGEMANAGER->findImage("p2Win");
@@ -70,9 +69,13 @@ void PVPScene::update()
 			Intro();
 		if (isStart == true)
 		{
-
+			ITEMMANAGER->update();
 			p1->update();
 			p2->update();
+			if (KEYMANAGER->isOnceKeyDown('O'))
+			{
+				ITEMMANAGER->setItem(5, 5);
+			}
 			if (p1->getEnd() == true)
 			{
 				winPlayer = 1;
@@ -101,16 +104,54 @@ void PVPScene::update()
 void PVPScene::render()
 {
 	TILEMANAGER->render("WaterStage");
+	for (int y = 0; y < TILEMANAGER->GetTileLastArrY(); y++)
+	{
+		for (int x = 0; x < TILEMANAGER->GetTileLastArrX(); x++)
+		{
+			TILEMANAGER->GetTileList("w")[y][x].render();
+		}
+		if (y == p1->getArrayY())
+			p1->render();
+		if (y == p2->getArrayY())
+			p2->render();
+		for (int i = 0; i < p1->getBullet()->getvBomb().size(); i++)
+		{
+			if(p1->getBullet()->getvBomb()[i]->getArrayY() == y)
+				p1->getBullet()->getvBomb()[i]->render();
+		}
+		for (int i = 0; i < p1->getBullet()->getvBoom().size(); i++)
+		{
+			if (p1->getBullet()->getvBoom()[i]->getArrayY() == y)
+				p1->getBullet()->getvBoom()[i]->render();
+		}
+		for (int i = 0; i < p2->getBullet()->getvBomb().size(); i++)
+		{
+			if (p2->getBullet()->getvBomb()[i]->getArrayY() == y)
+				p2->getBullet()->getvBomb()[i]->render();
+		}
+		for (int i = 0; i < p2->getBullet()->getvBoom().size(); i++)
+		{
+			if (p2->getBullet()->getvBoom()[i]->getArrayY() == y)
+				p2->getBullet()->getvBoom()[i]->render();
+		}
+		for (int i = 0; i < ITEMMANAGER->getvItem().size(); i++)
+		{
+			if(ITEMMANAGER->getvItem()[i]->getArrayY() == y)
+				ITEMMANAGER->getvItem()[i]->render();
+		}
+	}
+	//p1->render();
 
-	p1->render();
-
-	p2->render();
+	//p2->render();
+	//ITEMMANAGER->render();
+	
 	if(winPlayer == 1)
 		img_p1Win->alphaRender(getMemDC(),mentPosition.x,mentPosition.y,mentAlpha);
 	else if(winPlayer == 2)
 		img_p2Win->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
 	if(isStart == false)
 		img_GameStart->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
+
 	Scene::render();
 }
 void PVPScene::release()
