@@ -1,5 +1,4 @@
 #pragma once
-#include "gameNode.h"
 #include "Item.h"
 #include "PowerUpItem.h"
 #include "CountUpItem.h"
@@ -7,15 +6,16 @@
 
 
 class ItemManager :
-	public gameNode
+	public singletonBase<ItemManager>
 {
 	vector<Item*> vItem;
 	vector<Item*>::iterator viItem;
 
 public:
 	HRESULT init();
-	void udpate();
+	void update();
 	void setItem(int arrayX,int arrayY);
+	vector<Item*> getvItem() {return vItem;}
 	void render();
 	ItemManager();
 	~ItemManager();

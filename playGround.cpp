@@ -48,6 +48,9 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addImage("p1Win", "image/p1Win.bmp", 880, 300, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("p2Win", "image/p2Win.bmp", 880, 300, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("gameStart", "image/gameStart.bmp", 880, 300, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Bubble", "image/Bubble.bmp", 64, 73, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Bubble2", "image/Bubble2.bmp", 64, 73, true, RGB(0, 248, 0));
+	IMAGEMANAGER->addImage("Bubble3", "image/Bubble3.bmp", 64, 73, true, RGB(0, 78, 248));
 
 	SCENEMANAGER->addScene("TitleScene", new TitleScene);
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);

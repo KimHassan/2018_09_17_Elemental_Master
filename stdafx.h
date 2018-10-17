@@ -28,6 +28,7 @@
 #include "txtData.h"
 #include "database.h"
 #include "tileManager.h"
+#include "ItemManager.h"
 #include "tile.h"
 
 using namespace OCTA_UTIL;
@@ -58,6 +59,7 @@ using namespace OCTA_UTIL;
 #define INIDATA iniDataManager::getSingeton()
 #define DATABASE database::getSingeton()
 #define TILEMANAGER tileManager::getSingeton()
+#define ITEMMANAGER ItemManager::getSingeton()
 
 //=======================================
 // ## Macro ## 18.01.31 ## 

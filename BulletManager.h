@@ -27,5 +27,11 @@ public:
 	void setPower(int _power) { power = _power; }
 	int getMax() {return max;}
 	int getPower() { return power; }
+	vector<Bomb*> getvBomb() {
+		return vBomb;
+	}
+	vector<Boom*> getvBoom() {
+		return vBoom;
+	}
 	void release();
 };

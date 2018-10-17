@@ -44,6 +44,10 @@ public:
 	virtual void respawn();
 	virtual int getX() { return x; }
 	virtual int getY() { return y; }
+	virtual int getArrayX() { return arrayX; }
+	virtual int getArrayY() { return arrayY; }
+	virtual void setSpeed(int num) { speed = num; }
+	virtual int getSpeed() { return speed; }
 	virtual BulletManager *getBullet() { return b; }
 	virtual bool getEnd() { return isEnd; }
 	virtual RECT getRect() { return rc; }
