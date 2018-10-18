@@ -22,5 +22,5 @@ HRESULT  SpeedUpItem::init(int _arrayX, int _arrayY)
 }
 void SpeedUpItem::useItem(p_Player *p)
 {
-	p->setSpeed(p->getSpeed() + 1);
+	p->setSpeed(p->getSpeed() + 0.5);
 }

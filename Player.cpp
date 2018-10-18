@@ -18,10 +18,10 @@ HRESULT Player::init(string _stageName,int _arrayY,int _arrayX)
 	p_Player::init(_stageName, _arrayY,_arrayX);
 	img = IMAGEMANAGER->findImage("Player1");
 	b = new BulletManager;
-	b->init("Boom","Bub",10);
+	b->init("Boom2","Bub2",1);
 
 	hp = new Heart;
-	hp->init("Player1_Hp", GAMEWINDOWX / 2 - 25, 150, 1);
+	hp->init("Player1_Hp", GAMEWINDOWX / 2 - 25, 150, 3);
 
 	return S_OK;
 }

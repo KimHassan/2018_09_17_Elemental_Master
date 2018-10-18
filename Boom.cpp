@@ -25,7 +25,7 @@ void Boom::update()
 {
 	count++;
 
-	if (count % 20 == 0 && count != 0)
+	if (count % 14 == 0 && count != 0)
 	{
 		frameX++;
 	}

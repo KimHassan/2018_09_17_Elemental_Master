@@ -15,10 +15,10 @@ HRESULT Player2::init(string _stageName, int _arrayY, int _arrayX)
 	img = IMAGEMANAGER->findImage("Player2");
 
 	b = new BulletManager;
-	b->init("Boom", "Bub", 10);
+	b->init("Boom", "Bub", 1);
 
 	hp = new Heart;
-	hp->init("Player2_Hp", GAMEWINDOWX + GAMEWINDOWWIDTH + GAMEWINDOWX / 2 - 25, 150, 1);
+	hp->init("Player2_Hp", GAMEWINDOWX + GAMEWINDOWWIDTH + GAMEWINDOWX / 2 - 25, 150, 3);
 	return S_OK;
 }
 

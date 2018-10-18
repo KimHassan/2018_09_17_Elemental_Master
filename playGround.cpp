@@ -37,8 +37,9 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addFrameImage("Player1", "image/character1.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Player2", "image/character2.bmp", 0, 0, 280, 400, 4, 4, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Bub",     "image/BlueBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
+	IMAGEMANAGER->addFrameImage("Bub2", "image/RedBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
-
+	IMAGEMANAGER->addFrameImage("Boom2", "image/Boomcenter2.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addImage("Title_Scene", "image/title_scene.bmp", 640, 380, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Title_Scene_Left", "image/left(70,35).bmp", 253, 290, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Title_Scene_Right", "image/right(323,40).bmp", 221, 238, true, RGB(255, 0, 255));
