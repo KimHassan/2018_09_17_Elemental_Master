@@ -72,10 +72,6 @@ void PVPScene::update()
 			ITEMMANAGER->update();
 			p1->update();
 			p2->update();
-			if (KEYMANAGER->isOnceKeyDown('O'))
-			{
-				ITEMMANAGER->setItem(5, 5);
-			}
 			if (p1->getEnd() == true)
 			{
 				winPlayer = 1;

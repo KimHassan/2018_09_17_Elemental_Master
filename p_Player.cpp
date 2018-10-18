@@ -32,7 +32,7 @@ HRESULT p_Player::init(string _stageName, int _arrayY, int _arrayX)
 
 	dead_sign = IMAGEMANAGER->findImage("dead");
 
-
+	rc = RectMake(x + 10, y + 70, 50, 30);
 
 	
 	return S_OK;

@@ -81,6 +81,7 @@
     <ClInclude Include="animation.h" />
     <ClInclude Include="Bomb.h" />
     <ClInclude Include="Boom.h" />
+    <ClInclude Include="Boss.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="commonMacroFunction.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="animation.cpp" />
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Boom.cpp" />
+    <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="CountUpItem.cpp" />
