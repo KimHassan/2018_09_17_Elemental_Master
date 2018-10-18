@@ -37,9 +37,25 @@ HRESULT tileManager::init(string _stageName)
 		2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 2, 1, 2,
 		2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
 	};
+	int bossPattern[150] = //0 = TILE, 1 = BLOCK, 2 = WALL, 3 = BOMB, 4 = BOOM
+	{
+		2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+		2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+	};
 	//maketilestage("WaterStage", tempPattern);
 	//maketilestage("FireStage", tempPattern);
-	maketilestage(stageName.c_str(), tempPattern);
+	if(_stageName == "WaterStage")
+	maketilestage("WaterStage", tempPattern);
+	if (_stageName == "BossStage")
+	maketilestage("BossStage", bossPattern);
 
 	return S_OK;
 }
@@ -119,7 +135,33 @@ void tileManager::maketilestage(const char *_stageName, int *tilePattern)
 			}
 		}
 	}
+	if (stageName == "BossStage")
+	{
+		for (int y = 0; y < lastArrY; y++)
+		{
+			for (int x = 0; x < lastArrX; x++)
+			{
+				if (tilePattern[y * lastArrX + x] == TILE)
+				{
+					pushTile("BossStage", "wTile1", y, x, TILE, true);
+				}
+				else if (tilePattern[y * lastArrX + x] == BLOCK)
+				{
 
+					pushTile("BossStage", "wBlock", y, x, BLOCK, true);
+				}
+				else if (tilePattern[y * lastArrX + x] == WALL)
+				{
+
+					pushTile("BossStage", "wWall", y, x, WALL, true);
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
+	}
 }
 
 void tileManager::pushTile(const char *_stageName, const char *imageName, int _arrayY, int _arrayX, int _state, bool _setCheck)
@@ -155,6 +197,7 @@ tileManager::tileManager()
 
 	tileSets.insert(make_pair("WaterStage", t));
 	tileSets.insert(make_pair("FireStage", t));
+	tileSets.insert(make_pair("BossStage", t));
 
 }
 

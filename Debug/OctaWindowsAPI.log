@@ -1,23 +1,4 @@
-<<<<<<< HEAD
 ﻿  Boss.cpp
-  PVPScene.cpp
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(113): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(118): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(123): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(128): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(133): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  p_Player.cpp
-d:\github\2018_09_17_elemental_master\p_player.cpp(110): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\p_player.cpp(153): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\github\2018_09_17_elemental_master\boss.cpp(152): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
-  코드를 생성하고 있습니다...
   OctaWindowsAPI.vcxproj -> D:\GitHub\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
-=======
-﻿  PVPScene.cpp
-c:\users\bond kim\source\repos\2018_09_17_elemental_master\pvpscene.cpp(119): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\bond kim\source\repos\2018_09_17_elemental_master\pvpscene.cpp(124): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\bond kim\source\repos\2018_09_17_elemental_master\pvpscene.cpp(129): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\bond kim\source\repos\2018_09_17_elemental_master\pvpscene.cpp(134): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-c:\users\bond kim\source\repos\2018_09_17_elemental_master\pvpscene.cpp(139): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  OctaWindowsAPI.vcxproj -> C:\Users\bond kim\source\repos\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
->>>>>>> 6df8915bfd544cd8145b485ad98391e4d2541ce1

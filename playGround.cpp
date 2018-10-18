@@ -53,6 +53,8 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addImage("Bubble2", "image/Bubble2.bmp", 64, 73, true, RGB(0, 248, 0));
 	IMAGEMANAGER->addImage("Bubble3", "image/Bubble3.bmp", 64, 73, true, RGB(0, 78, 248));
 
+	IMAGEMANAGER->addImage("Boss", "image/boss.bmp", 210, 253, true, RGB(255, 0, 255));
+
 	SCENEMANAGER->addScene("TitleScene", new TitleScene);
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);
 	SCENEMANAGER->addScene("PVEScene", new PVEScene);

@@ -5,23 +5,46 @@ class Boss :
 {
 	image *img;
 	int x, y;
-	int width, height;
 	POINT center;
 	int frameX, frameY;
 	int arrayX, arrayY;
-
-	UINT speed;
-	UINT count;
 	RECT rc;
 	BulletManager *b;
+	int alpha;
+	
+	UINT updateAttackCount;
+	UINT attackCount;
+	UINT attackingCount;
+	
+	bool isDamaged;
+	UINT damagedCount;
+	int hp;
 
-	Heart *hp;
+	bool isMoving;
+	bool isMoving2;
+	int moveX;
+	int moveY;
+	UINT moveCount;
+	UINT updateMoveCount;
+
 
 public:
 	HRESULT init();
 	void update();
 	void render();
 	void release();
+
+
+	void attack();
+	void attack1();
+	void attack2();
+	void attack3();
+
+	void move();
+
+	int getArrayX() { return arrayX; }
+	int getArrayY() { return arrayY; }
+	BulletManager *getBullet() { return b; }
 	Boss();
 	~Boss();
 };

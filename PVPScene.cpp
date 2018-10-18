@@ -19,7 +19,7 @@ HRESULT PVPScene::init()
 	p1->init("WaterStage",3,1);
 
 	p2 = new Player2;
-	p2->init("WaterStage",6,10);
+	p2->init("WaterStage",7,10);
 
 
 	img_p1Win		 = IMAGEMANAGER->findImage("p1Win");
@@ -138,10 +138,7 @@ void PVPScene::render()
 				ITEMMANAGER->getvItem()[i]->render();
 		}
 	}
-	//p1->render();
 
-	//p2->render();
-	//ITEMMANAGER->render();
 	
 	if(winPlayer == 1)
 		img_p1Win->alphaRender(getMemDC(),mentPosition.x,mentPosition.y,mentAlpha);
