@@ -33,6 +33,7 @@ HRESULT PVPScene::init()
 	isStart = false;
 	p1->update();
 	p2->update();
+	SOUNDMANAGER->play("WaterStage", 0.5);
 	return S_OK;
 }
 void PVPScene::Intro()
@@ -157,4 +158,5 @@ void PVPScene::release()
 	delete img_p1Win;
 	delete img_p2Win;
 	delete img_GameStart;
+	SOUNDMANAGER->stop("WaterStage");
 }

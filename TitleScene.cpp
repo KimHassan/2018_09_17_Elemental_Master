@@ -31,6 +31,7 @@ HRESULT TitleScene::init()
 	alpha = 0;
 	isGameStart = false;
 	moveScene = 0;
+	SOUNDMANAGER->play("TitleScene", 1);
 	return S_OK;
 }
 void TitleScene::update()
@@ -115,4 +116,6 @@ void TitleScene::release()
 	delete rightSelect;
 	delete howToSelect;
 	delete black;
+
+	SOUNDMANAGER->stop("TitleScene");
 }

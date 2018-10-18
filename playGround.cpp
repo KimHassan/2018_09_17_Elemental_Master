@@ -55,6 +55,11 @@ HRESULT playGround::init()
 
 	IMAGEMANAGER->addImage("Boss", "image/boss.bmp", 210, 253, true, RGB(255, 0, 255));
 
+	SOUNDMANAGER->addSound("BombEffect", "Sound/BombEffect.mp3", false, false);
+	SOUNDMANAGER->addSound("WaterStage", "Sound/WaterStageBgm.mp3", true, true);
+	SOUNDMANAGER->addSound("TitleScene", "Sound/SelectSceneBgm.mp3", true, true);
+
+
 	SCENEMANAGER->addScene("TitleScene", new TitleScene);
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);
 	SCENEMANAGER->addScene("PVEScene", new PVEScene);
@@ -77,7 +82,7 @@ void playGround::release()
 void playGround::update()
 {
 	SCENEMANAGER->update();
-	
+	SOUNDMANAGER->update();
 
 }
 

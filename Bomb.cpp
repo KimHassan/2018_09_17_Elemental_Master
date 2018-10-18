@@ -46,6 +46,7 @@ void Bomb::update()
 	{
 		end = true;
 		TILEMANAGER->GetTileList("WaterStage")[arrayY][arrayX].ChangeToTile();
+		SOUNDMANAGER->play("BombEffect", 1);
 		release();
 	}
 

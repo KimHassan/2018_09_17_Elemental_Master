@@ -3,6 +3,7 @@
 
 
 soundManager::soundManager()
+	: _system(NULL), _channel(NULL), _sound(NULL)
 {
 }
 
@@ -30,12 +31,45 @@ HRESULT soundManager::init()
 
 void soundManager::release()
 {
+	//사운드 삭제
+	if (_channel != NULL || _sound != NULL)
+	{
+		for (int i = 0; i < TOTALSOUNDBUFFER; i++)
+		{
+			if (_channel != NULL)
+			{
+				if (_channel[i]) _channel[i]->stop();
+			}
 
+			if (_sound != NULL)
+			{
+				if (_sound != NULL) _sound[i]->release();
+			}
+		}
+	}
+
+	//메모리 지우기
+	//SAFE_DELETE_ARRAY(_channel);
+	//SAFE_DELETE_ARRAY(_sound);
+
+	//시스템 닫기 
+	if (_system != NULL)
+	{
+		_system->release();
+		_system->close();
+	}
 }
 
+
+//=============================이 거 추 가 ====================================
 void soundManager::update()	
 {
+	//사운드 System 계속적으로 업데이트
+	_system->update();
 
+	//볼륨이 바뀌거나 
+	//재생이 끝난 사운드를 채널에서 빼내는등의 다양한
+	//작업을 자동으로 해준다
 }
 
 
@@ -82,7 +116,7 @@ void soundManager::play(string keyName, float volume)
 	{
 		if ( keyName == iter->first )
 		{
-			_system->playSound(FMOD_CHANNEL_FREE, _sound[count], false, &_channel[count]);
+			_system->playSound(FMOD_CHANNEL_FREE, *iter->second, false, &_channel[count]);
 
 			_channel[count]->setVolume(volume);
 			break;

@@ -1,4 +1,9 @@
-﻿  Boss.cpp
-d:\github\2018_09_17_elemental_master\boss.cpp(152): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+﻿  Bomb.cpp
+  PVPScene.cpp
+d:\github\2018_09_17_elemental_master\pvpscene.cpp(116): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvpscene.cpp(121): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvpscene.cpp(126): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvpscene.cpp(131): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvpscene.cpp(136): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
   OctaWindowsAPI.vcxproj -> D:\GitHub\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
