@@ -4,7 +4,7 @@
 HRESULT BulletManager::init(string _boomName, string _bombName, UINT _max)
 {
 	max = _max;
-	power = 3;
+	power = 2;
 	count = 0;
 	
 	boomName = _boomName;

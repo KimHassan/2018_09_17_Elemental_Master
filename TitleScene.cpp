@@ -90,7 +90,7 @@ void TitleScene::update()
 }
 void TitleScene::render()
 {
-
+	IMAGEMANAGER->findImage("Black")->render(getMemDC(), 0, 0);
 	bg->scaleRender(getMemDC(), 0, 0,2,2);
 	if (isleftSelect)
 	{

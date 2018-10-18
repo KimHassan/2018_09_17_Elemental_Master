@@ -31,6 +31,8 @@ HRESULT PVPScene::init()
 	isEnd = false;
 	isIntro = false;
 	isStart = false;
+	p1->update();
+	p2->update();
 	return S_OK;
 }
 void PVPScene::Intro()
@@ -99,7 +101,7 @@ void PVPScene::update()
 }
 void PVPScene::render()
 {
-	TILEMANAGER->render("WaterStage");
+	//TILEMANAGER->render("WaterStage");
 	for (int y = 0; y < TILEMANAGER->GetTileLastArrY(); y++)
 	{
 		for (int x = 0; x < TILEMANAGER->GetTileLastArrX(); x++)

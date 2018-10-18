@@ -17,7 +17,7 @@ protected:
 	int arrayX, arrayY;
 	int map[20][20];
 
-	UINT speed;
+	float speed;
 	UINT count;
 	RECT rc;
 	BulletManager *b;
@@ -47,7 +47,7 @@ public:
 	virtual int getArrayX() { return arrayX; }
 	virtual int getArrayY() { return arrayY; }
 	virtual void setSpeed(int num) { speed = num; }
-	virtual int getSpeed() { return speed; }
+	virtual float getSpeed() { return speed; }
 	virtual BulletManager *getBullet() { return b; }
 	virtual bool getEnd() { return isEnd; }
 	virtual RECT getRect() { return rc; }

@@ -26,7 +26,7 @@ void Item::update()
 
 void Item::render()
 {
-	img->render(getMemDC(), x, y);
+	img->render(getMemDC(), x, y-9);
 }
 
 void Item::release()
