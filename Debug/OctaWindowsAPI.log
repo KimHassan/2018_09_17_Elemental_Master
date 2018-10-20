@@ -1,9 +1,8 @@
-﻿  Bomb.cpp
-  PVPScene.cpp
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(116): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(121): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(126): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(131): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\2018_09_17_elemental_master\pvpscene.cpp(136): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다...
-  OctaWindowsAPI.vcxproj -> D:\GitHub\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
+﻿  image.cpp
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(335): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(334): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(347): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(574): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(578): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\bond kim\source\repos\2018_09_17_elemental_master\image.cpp(582): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  OctaWindowsAPI.vcxproj -> C:\Users\bond kim\source\repos\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe

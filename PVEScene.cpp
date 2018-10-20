@@ -33,6 +33,8 @@ HRESULT PVEScene::init()
 	isStart = false;
 	p1->update();
 	p2->update();
+	itemCount = 0;
+	updateItemCount = 0;
 	return S_OK;
 }
 void PVEScene::Intro()
@@ -75,6 +77,20 @@ void PVEScene::update()
 			p1->update();
 			p2->update();
 			b->update();
+
+			itemCount++;
+			if (itemCount > updateItemCount)
+			{
+				itemCount = 0;
+				updateItemCount = rand() % 1000 + 300;
+				int max = rand() % 6;
+				for (int i = 0; i < max; i++)
+				{
+					int tempX = rand() % 13 + 1;
+					int tempY = rand() % 8 + 1;
+					ITEMMANAGER->setItem(tempX, tempY);
+				}
+			}
 			if (p1->getEnd() == true && p2->getEnd() == true)
 			{
 				isEnd = true;

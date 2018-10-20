@@ -104,9 +104,9 @@ void Boss::attack3()
 {
 	for (int i = 1; i < 9; i++)
 	{
-		b->setBomb(i, 2);
-		b->setBomb(i, 5);
-		b->setBomb(i, 8);
+		b->setBomb(i, 3);
+		b->setBomb(i, 7);
+		b->setBomb(i, 11);
 	}
 }
 

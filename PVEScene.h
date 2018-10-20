@@ -18,6 +18,9 @@ class PVEScene :
 	POINT mentPosition;
 	image *img_GameStart;
 
+	UINT itemCount;
+	UINT updateItemCount;
+
 public:
 	void Intro();
 	virtual HRESULT init();
