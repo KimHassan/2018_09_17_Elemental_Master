@@ -43,6 +43,39 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	//윈도우 정보 셋팅이 끝났다면 등록 해주자
 	RegisterClass(&wndClass);
 
+#ifdef FULLSCREEN
+	DEVMODE dm;
+
+	ZeroMemory(&dm, sizeof(DEVMODE));
+
+	dm.dmSize = sizeof(DEVMODE);
+	dm.dmBitsPerPel = 32;
+	dm.dmPelsWidth = 1280;
+	dm.dmPelsHeight = 720;
+	dm.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT | DM_DISPLAYFREQUENCY;
+
+	//만약에 해상도 변경에 실패하면 되돌리는 함쑤
+	if ((ChangeDisplaySettings(&dm, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL))
+	{
+		ChangeDisplaySettings(&dm, 0);
+	}
+
+	_hWnd = CreateWindow(
+		WINNAME,
+		WINNAME,
+		WS_POPUPWINDOW | WS_MAXIMIZE,	//윈도우 창 스타일
+		0,								//윈도우 시작 X좌표
+		0,								//윈도우 시작 Y좌표
+		GetSystemMetrics(SM_CXSCREEN),	//윈도우 창 가로크기
+		GetSystemMetrics(SM_CYSCREEN),	//윈도우 창 세로크기
+		NULL,
+		(HMENU)NULL,
+		hInstance,
+		NULL);
+
+	setWindowSize(WINSTARTX, WINSTARTY, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
+
+#else
 	//위에 셋팅한 윈도우 정보를 토대로 윈도우 창 형태를 구축
 	_hWnd = CreateWindow(
 		WINNAME,
@@ -59,6 +92,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 		
 	setWindowSize(WINSTARTX, WINSTARTY, WINSIZEX, WINSIZEY);
 
+#endif
 	//실제로 윈도우 창을 모니터에 띄워주는 함수
 	ShowWindow(_hWnd, cmdShow);
 

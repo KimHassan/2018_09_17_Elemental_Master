@@ -12,6 +12,7 @@ class PVPScene :
 	image *img_p1Win;
 	image *img_p2Win;
 	image *img_GameStart;
+	image *backButton;
 	POINT mentPosition;
 
 	int mentAlpha;

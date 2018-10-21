@@ -166,7 +166,10 @@ void p_Player::release()
 {
 	img = NULL;
 	dead_sign = NULL;
+
 	delete img;
 	delete dead_sign;
+	b->release();
+	hp->release();
 }
 

@@ -33,6 +33,8 @@ HRESULT PVPScene::init()
 	isStart = false;
 	p1->update();
 	p2->update();
+
+	backButton = IMAGEMANAGER->findImage("back_Button");
 	SOUNDMANAGER->play("WaterStage", 0.5);
 	return S_OK;
 }
@@ -60,6 +62,9 @@ void PVPScene::Intro()
 
 void PVPScene::update()
 {
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+		if (PtInRect(&RectMake(0, 0, 100, 100), _ptMouse))
+			SCENEMANAGER->changeScene("TitleScene");
 	if (isEnd == true)
 	{
 		if (KEYMANAGER->isOnceKeyDown(VK_RETURN))
@@ -147,7 +152,7 @@ void PVPScene::render()
 		img_p2Win->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
 	if(isStart == false)
 		img_GameStart->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
-
+	backButton->render(getMemDC(), 0, 0);
 	Scene::render();
 }
 void PVPScene::release()

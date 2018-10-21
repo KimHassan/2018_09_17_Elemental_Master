@@ -38,10 +38,25 @@ using namespace OCTA_UTIL;
 //=======================================
 
 #define WINNAME (LPSTR)(TEXT("Octa API"))
+
+#define FULLSCREEN
+
+#ifdef FULLSCREEN
+#define WINSTARTX 0
+#define WINSTARTY 0
+#define WINSIZEX GetSystemMetrics(SM_CXSCREEN)
+#define WINSIZEY GetSystemMetrics(SM_CXSCREEN)
+
+#else
 #define WINSTARTX 20
 #define WINSTARTY 50
 #define WINSIZEX 1280
 #define WINSIZEY 720
+
+#endif
+#define WINSTYLE_WS_CAPTION | WS_SYSMENU
+
+
 #define GAMEWINDOWX 160 // 타일맵 시작위치
 #define GAMEWINDOWY 40	// 타일맵 시작위치
 #define GAMEWINDOWWIDTH  960 // 타일맵 크기
