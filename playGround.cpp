@@ -40,6 +40,7 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addFrameImage("Bub2", "image/RedBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom2", "image/Boomcenter2.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
+
 	IMAGEMANAGER->addImage("Select_Scene", "image/selectScene.bmp", 1280, 720, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Scene_Left1", "image/left_click(297,121).bmp", 345,408, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Scene_Left2", "image/left_overclick(297,121).bmp", 345,408, true, RGB(255, 0, 255));
@@ -62,7 +63,6 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addImage("exit_Button", "image/exit_button.bmp", 100,100, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("back_Button", "image/x_button.bmp", 100,100, true, RGB(255, 0, 255));
 
-
 	IMAGEMANAGER->addImage("Boss", "image/boss.bmp", 210, 357, true, RGB(255, 0, 255));
 
 	SOUNDMANAGER->addSound("BombEffect", "Sound/BombEffect.mp3", false, false);
@@ -75,11 +75,7 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);
 	SCENEMANAGER->addScene("PVEScene", new PVEScene);
 
-
 	SCENEMANAGER->changeScene("TitleScene");
-
-	
-
 
 	return S_OK;
 }
@@ -87,7 +83,6 @@ HRESULT playGround::init()
 void playGround::release()
 {
 	gameNode::release();
-
 }
 
 void playGround::update()
@@ -109,5 +104,4 @@ void playGround::render(void)
 	TIMEMANAGER->render(getMemDC());
 	//==================================================================
 	this->getBackBuffer()->render(getHDC(), 0, 0);
-
 }
