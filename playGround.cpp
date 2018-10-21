@@ -50,11 +50,6 @@ HRESULT playGround::init()
 
 	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom2", "image/Boomcenter2.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
-
-<<<<<<< HEAD
-
-=======
->>>>>>> fd07324f78b290347c921265b0918442c8105188
 	IMAGEMANAGER->addImage("Select_Scene", "image/selectScene.bmp", 1280, 720, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Scene_Left1", "image/left_click(297,121).bmp", 345,408, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Scene_Left2", "image/left_overclick(297,121).bmp", 345,408, true, RGB(255, 0, 255));

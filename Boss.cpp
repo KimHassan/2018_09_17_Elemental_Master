@@ -201,16 +201,10 @@ void Boss::move() //¿Ãµø
 
 void Boss::render()
 {
-<<<<<<< HEAD
-	img->alphaRender(getMemDC(),x - 60,y  -250,alpha);
-=======
+
 	img->alphaRender(getMemDC(), x - 60, y - 250, alpha);
 	char str[128];
-	sprintf(str, "hp : %d  x:%d  y:%d", hp,arrayX, arrayY);
-	TextOut(getMemDC(), 10, 400, str, strlen(str));
->>>>>>> fd07324f78b290347c921265b0918442c8105188
 	hpBar->render();
-
 	if(KEYMANAGER->isToggleKey(VK_F1))
 		Rectangle(getMemDC(), x, y, x + 64, y + 64);
 }
