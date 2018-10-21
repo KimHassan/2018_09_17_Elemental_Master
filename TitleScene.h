@@ -20,6 +20,7 @@ class TitleScene :
 	RECT  rightSelectRect;
 	RECT  howToSelectRect;
 	RECT buttonRect;
+	RECT exitRect;
 	RECT rc;
 	
 	int changeScene;

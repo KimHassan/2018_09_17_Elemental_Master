@@ -4,8 +4,6 @@
 class Boss :
 	public gameNode
 {
-	
-
 	image *img;
 	int x, y;
 	POINT center;
@@ -35,15 +33,16 @@ class Boss :
 
 public:
 	HRESULT init();
+
 	void update();
 	void render();
 	void release();
-
 
 	void attack();
 	void attack1();
 	void attack2();
 	void attack3();
+	void attack4();
 
 	void cheat();
 

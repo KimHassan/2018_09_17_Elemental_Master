@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  OctaWindowsAPI.cpp
   PVEScene.cpp
 d:\github\2018_09_17_elemental_master\pvescene.cpp(145): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
@@ -10,3 +11,7 @@ d:\github\2018_09_17_elemental_master\pvescene.cpp(175): warning C4018: '<': sig
   playGround.cpp
   코드를 생성하고 있습니다...
   OctaWindowsAPI.vcxproj -> D:\GitHub\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
+=======
+﻿  TitleScene.cpp
+  OctaWindowsAPI.vcxproj -> C:\Users\Dongjune\Documents\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe
+>>>>>>> fd07324f78b290347c921265b0918442c8105188

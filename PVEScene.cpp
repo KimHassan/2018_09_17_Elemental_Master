@@ -15,11 +15,12 @@ HRESULT PVEScene::init()
 {
 	Scene::init();
 	TILEMANAGER->init("BossStage");
+
 	p1 = new Player;
-	p1->init("BossStage", 6, 1);
+	p1->init("BossStage", 0, 1);
 
 	p2 = new Player2;
-	p2->init("BossStage", 6, 10);
+	p2->init("BossStage", 7, 13);
 
 	b = new Boss;
 	b->init();
@@ -28,6 +29,7 @@ HRESULT PVEScene::init()
 	mentAlpha = 0;
 	img_GameStart = IMAGEMANAGER->findImage("gameStart");
 	ending = IMAGEMANAGER->findImage("gameStart");
+
 	winPlayer = 0;
 	isEnd = 0;
 	isIntro = false;
@@ -39,9 +41,10 @@ HRESULT PVEScene::init()
 
 	backButton = IMAGEMANAGER->findImage("back_Button");
 	SOUNDMANAGER->play("BossScene", 0.5);
+
 	return S_OK;
 }
-void PVEScene::Intro()
+void PVEScene::Intro() //시작전 딜레이
 {
 	if (isIntro == false)
 	{
@@ -93,40 +96,42 @@ void PVEScene::update()
 		if (KEYMANAGER->isOnceKeyDown(VK_RETURN))
 			SCENEMANAGER->changeScene("TitleScene");
 	}
+
 	if (isEnd >= 1)
 		return;
-		Scene::update();
-		if (isGameStart == true && isStart == false)
-			Intro();
-		if (isStart == true)
-		{
-			ITEMMANAGER->update();
-			p1->update();
-			p2->update();
-			b->update();
-			if (b->getDead() == true)
-				isEnd = 1;
 
-			itemCount++;
-			if (itemCount > updateItemCount)
+	Scene::update();
+
+	if (isGameStart == true && isStart == false)
+		Intro();
+
+	if (isStart == true)
+	{
+		ITEMMANAGER->update();
+		p1->update();
+		p2->update();
+		b->update();
+		if (b->getDead() == true)
+			isEnd = 1;
+
+		itemCount++;
+		if (itemCount > updateItemCount)
+		{
+			itemCount = 0;
+			updateItemCount = rand() % 1000 + 300;
+			int max = rand() % 6;
+			for (int i = 0; i < max; i++)
 			{
-				itemCount = 0;
-				updateItemCount = rand() % 1000 + 300;
-				int max = rand() % 6;
-				for (int i = 0; i < max; i++)
-				{
-					int tempX = rand() % 13 + 1;
-					int tempY = rand() % 8 + 1;
-					ITEMMANAGER->setItem(tempX, tempY);
-				}
-			}
-			if (p1->getEnd() == true && p2->getEnd() == true)
-			{
-				isEnd = true;
+				int tempX = rand() % 13 + 1;
+				int tempY = rand() % 8 + 1;
+				ITEMMANAGER->setItem(tempX, tempY);
 			}
 		}
-
-
+		if (p1->getEnd() == true && p2->getEnd() == true)
+		{
+			isEnd = true;
+		}
+	}
 }
 void PVEScene::render()
 {

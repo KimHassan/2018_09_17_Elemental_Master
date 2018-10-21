@@ -8,7 +8,7 @@
 class PVEScene :
 	public Scene
 {
-
+private:	
 	Player *p1;
 	Player2 *p2;
 	Boss *b;
@@ -25,8 +25,6 @@ class PVEScene :
 
 	UINT itemCount;
 	UINT updateItemCount;
-
-
 
 public:
 	void Intro();
