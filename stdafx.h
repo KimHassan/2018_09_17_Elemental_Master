@@ -37,7 +37,7 @@ using namespace OCTA_UTIL;
 // ## - 디파인문 - ## 18.01.12 ## 
 //=======================================
 
-#define WINNAME (LPSTR)(TEXT("Octa API"))
+#define WINNAME (LPSTR)(TEXT("Elemental Master"))
 
 #define FULLSCREEN
 

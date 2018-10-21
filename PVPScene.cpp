@@ -108,6 +108,7 @@ void PVPScene::update()
 void PVPScene::render()
 {
 	//TILEMANAGER->render("WaterStage");
+	IMAGEMANAGER->findImage("inGameBg")->render(getMemDC());
 	for (int y = 0; y < TILEMANAGER->GetTileLastArrY(); y++)
 	{
 		for (int x = 0; x < TILEMANAGER->GetTileLastArrX(); x++)
@@ -146,9 +147,9 @@ void PVPScene::render()
 	}
 
 	
-	if(winPlayer == 1)
+	if(winPlayer == 2)
 		img_p1Win->alphaRender(getMemDC(),mentPosition.x,mentPosition.y,mentAlpha);
-	else if(winPlayer == 2)
+	else if(winPlayer == 1)
 		img_p2Win->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
 	if(isStart == false)
 		img_GameStart->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
@@ -157,6 +158,9 @@ void PVPScene::render()
 }
 void PVPScene::release()
 {
+	p1->release();
+	p2->release();
+
 	img_p1Win	   = NULL;
 	img_p2Win	   = NULL;
 	img_GameStart  = NULL;

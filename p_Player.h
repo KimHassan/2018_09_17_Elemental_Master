@@ -8,7 +8,8 @@ class p_Player :
 protected:
 	image *img;
 	image *dead_sign;
-
+	BulletManager *b;
+	Heart *hp;
 
 	int x, y;
 	int width, height;
@@ -20,9 +21,7 @@ protected:
 	float speed;
 	UINT count;
 	RECT rc;
-	BulletManager *b;
 
-	Heart *hp;
 
 	bool isDead;
 	bool isReverse;
@@ -48,6 +47,7 @@ public:
 	virtual int getArrayY() { return arrayY; }
 	virtual void setSpeed(int num) { speed = num; }
 	virtual float getSpeed() { return speed; }
+	virtual int getHp() { return hp->GetCurrentHp(); }
 	virtual BulletManager *getBullet() { return b; }
 	virtual bool getEnd() { return isEnd; }
 	virtual RECT getRect() { return rc; }

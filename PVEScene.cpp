@@ -28,7 +28,7 @@ HRESULT PVEScene::init()
 	mentPosition = PointMake(200, 210);
 	mentAlpha = 0;
 	img_GameStart = IMAGEMANAGER->findImage("gameStart");
-	ending = IMAGEMANAGER->findImage("gameStart");
+	ending = IMAGEMANAGER->findImage("Victory");
 
 	winPlayer = 0;
 	isEnd = 0;
@@ -77,6 +77,11 @@ void PVEScene::update()
 		if (alpha >= 255)
 		{
 			alpha = 255;
+			if (p1->getEnd() == true && p2->getEnd() == true)
+			{
+				SCENEMANAGER->changeScene("TitleScene");
+				return;
+			}
 			isEnd = 2;
 		}
 
@@ -129,13 +134,13 @@ void PVEScene::update()
 		}
 		if (p1->getEnd() == true && p2->getEnd() == true)
 		{
-			isEnd = true;
+			isEnd = 1;
 		}
 	}
 }
 void PVEScene::render()
 {
-
+	IMAGEMANAGER->findImage("inGameBg")->render(getMemDC());
 	for (int y = 0; y < TILEMANAGER->GetTileLastArrY(); y++)
 	{
 		for (int x = 0; x < TILEMANAGER->GetTileLastArrX(); x++)
@@ -195,9 +200,15 @@ void PVEScene::render()
 }
 void PVEScene::release()
 {
-
+	p1->release();
+	p2->release();
+	b->release();
+	ending		= NULL;
+	backButton=  NULL;
 	img_GameStart = NULL;
 
+	delete ending;
+	delete 	backButton;
 	delete img_GameStart;
 	SOUNDMANAGER->stop("BossScene");
 	SOUNDMANAGER->stop("Victory");

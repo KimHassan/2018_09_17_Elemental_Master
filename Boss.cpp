@@ -112,7 +112,7 @@ void  Boss::attack()
 			break;
 
 		case 3:
-			attack4();
+			//attack4();
 			break;
 		}
 		updateAttackCount = 0;
@@ -211,7 +211,10 @@ void Boss::render()
 
 void Boss::release()
 {
-
+	img = NULL;
+	delete img;
+	 b->release();
+	hpBar->release();
 }
 
 Boss::Boss()

@@ -177,8 +177,5 @@ void Player::setBomb() // Ä³¸¯ÅÍÀÇ ÆøÅºÀ» ´ã´çÇÔ
 
 void Player::respawn()
 {
-	arrayY = 5;
-	arrayX = 1;
-	x = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().left;
-	y = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().top;
+	p_Player::respawn();
 }

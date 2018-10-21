@@ -5,12 +5,14 @@ class Boss :
 	public gameNode
 {
 	image *img;
+	BulletManager *b;
+	progressBar *hpBar;
 	int x, y;
 	POINT center;
 	int frameX, frameY;
 	int arrayX, arrayY;
 	RECT rc;
-	BulletManager *b;
+	
 	int alpha;
 	
 	UINT updateAttackCount;
@@ -29,7 +31,7 @@ class Boss :
 	UINT moveCount;
 	UINT updateMoveCount;
 
-	progressBar *hpBar;
+	
 
 public:
 	HRESULT init();

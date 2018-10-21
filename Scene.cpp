@@ -41,5 +41,6 @@ void Scene::render()
 }
 void Scene::release()	
 {
-
+	black = NULL;
+	delete black;
 }

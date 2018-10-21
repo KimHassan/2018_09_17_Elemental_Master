@@ -11,6 +11,7 @@ class TitleScene :
 	image *leftSelect2;
 	image *rightSelect2;
 	image *howToSelect;
+	image *howToScene;
 	image *exitButton;
 	image *backButton;
 	image* black;

@@ -14,6 +14,8 @@ private:
 	Boss *b;
 	image *ending;
 	image *backButton;
+	image *img_GameStart;
+
 
 	int mentAlpha;
 	int winPlayer;
@@ -21,7 +23,7 @@ private:
 	bool isIntro;
 	bool isStart;
 	POINT mentPosition;
-	image *img_GameStart;
+
 
 	UINT itemCount;
 	UINT updateItemCount;

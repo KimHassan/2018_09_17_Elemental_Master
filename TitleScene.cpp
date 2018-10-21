@@ -24,6 +24,8 @@ HRESULT TitleScene::init()
 	black		 = IMAGEMANAGER->findImage("Black");
 	exitButton   = IMAGEMANAGER->findImage("exit_Button");
 	backButton   = IMAGEMANAGER->findImage("back_Button");
+	howToScene   = IMAGEMANAGER->findImage("HowTo_Scene");
+
 
 	leftSelectRect = RectMake(340, 151, 297, 364);
 	rightSelectRect	= RectMake(643, 150, 317, 334);
@@ -189,7 +191,7 @@ void TitleScene::render()
 
 	if (ishowToScene)
 	{
-		howToSelect->render(getMemDC(), 0, 0);
+		howToScene->render(getMemDC(), 0, 0);
 		backButton->render(getMemDC(), 0, 0);
 	}
 	if (changeScene < 2)
@@ -206,6 +208,7 @@ void TitleScene::release()
 	leftSelect2= NULL;
 	rightSelect2 = NULL;
 	black		= NULL;
+	howToScene = NULL;
 
 	delete title;
 	delete bg;
@@ -215,6 +218,7 @@ void TitleScene::release()
 	delete rightSelect2;
 	delete howToSelect;
 	delete black;
+	delete howToScene;
 
 	SOUNDMANAGER->stop("TitleScene");
 }

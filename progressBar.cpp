@@ -18,7 +18,7 @@ HRESULT progressBar::init(int x, int y)
 	_y = y;
 
 	_rcProgress = RectMake(x, y, 53 * 3, 5 * 3);
-	_progressBarTop = IMAGEMANAGER->addImage("frontBar", "image/hpBarTop.BMP", x, y, 53* 3, 5 *3, true, RGB(255, 0, 255));
+	_progressBarTop		= IMAGEMANAGER->addImage("frontBar", "image/hpBarTop.BMP", x, y, 53* 3, 5 *3, true, RGB(255, 0, 255));
 	_progressBarBottom = IMAGEMANAGER->addImage("backBar",
 		"image/hpBarBottom.BMP", x, y, 53 * 3, 5 * 3, true, RGB(255, 0, 255));
 
@@ -30,7 +30,7 @@ HRESULT progressBar::init(int x, int y)
 
 void progressBar::release()									  
 {
-
+	
 }
 
 void progressBar::update(int x, int y)

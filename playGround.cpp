@@ -20,6 +20,8 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addImage("wTile2", "image/Water_Tile_2.bmp", 64, 64, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("wTile3", "image/Water_Tile_3.bmp", 64, 64, true, RGB(255, 0, 255));
 
+	IMAGEMANAGER->addImage("bTile", "image/bTile.bmp", 64, 64, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("bWall", "image/bWall.bmp", 64, 78, true, RGB(255, 0, 203));
 
 	IMAGEMANAGER->addImage("fWall1", "image/Fire_Block1.bmp", 64, 78, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("fWall2", "image/Fire_Block2.bmp", 64, 78, true, RGB(255, 0, 255));
@@ -56,9 +58,12 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addImage("Select_Scene_Right1", "image/right_click(640,128).bmp",		350,370, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Scene_Right2", "image/right_overclick(640,128).bmp", 350,370, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Scene_How_To", "image/howto_overclick(258,203).bmp",68,44, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("HowTo_Scene", "image/howToScene.bmp", 1280, 720, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Main_Scene", "image/mainScene.bmp", 1280, 720, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Victory", "image/victory.bmp", 1280, 720, true, RGB(255, 0, 255));
 
 	IMAGEMANAGER->addImage("Black", "image/black.bmp", 1280, 720, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("inGameBg", "image/inGameBg.bmp", 1280, 720, true, RGB(255, 0, 255));
 
 	IMAGEMANAGER->addImage("p1Win", "image/p1Win.bmp", 880, 300, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("p2Win", "image/p2Win.bmp", 880, 300, true, RGB(255, 0, 255));

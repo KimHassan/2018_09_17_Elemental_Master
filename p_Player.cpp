@@ -51,7 +51,7 @@ void p_Player::update()
 			if (alpha >= 255)
 			{
 				respawn();
-
+				MoveUpdate();
 				isReverse = true;
 
 			}
@@ -129,6 +129,24 @@ void p_Player::setBomb() // Ä³¸¯ÅÍÀÇ ÆøÅºÀ» ´ã´çÇÔ
 
 void p_Player::respawn()
 {
+	int x2;
+	int y2;
+	while (1)
+	{
+		x2 = RND->getFromIntTo(1, 13);
+		y2 = RND->getFromIntTo(1, 7);
+
+		if (TILEMANAGER->GetTileList("w")[y2][x2].GetTileState() == TILE && TILEMANAGER->GetTileList("w")[y2][x2].GetTileState() != BLOCK && TILEMANAGER->GetTileList("w")[y2][x2].GetTileState() != WALL)
+		{
+			arrayY = y2;
+			arrayX = x2;
+			break;
+		}
+
+	}
+
+	x = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().left;
+	y = TILEMANAGER->GetTileList(stageName.c_str())[arrayY][arrayX].GetTileRect().top;
 
 }
 void p_Player::Dead()
