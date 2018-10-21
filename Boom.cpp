@@ -40,7 +40,7 @@ void Boom::update()
 
 void Boom::render()
 {
-	img->frameRender(getMemDC(), x, y, frameX, frameY);
+	img->frameRender(getMemDC(), x-10, y-20, frameX, frameY);
 }
 
 void Boom::release()

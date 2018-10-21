@@ -13,6 +13,7 @@ class PVEScene :
 	Player2 *p2;
 	Boss *b;
 	image *ending;
+	image *backButton;
 
 	int mentAlpha;
 	int winPlayer;

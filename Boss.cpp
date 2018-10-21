@@ -12,7 +12,7 @@ HRESULT Boss::init()
 	y = TILEMANAGER->GetTileList("x")[arrayY][arrayX].GetTileRect().top;
 
 	b = new BulletManager;
-	b->init("Boom2", "Bub2", 100);
+	b->init("effect3", "Bomb3", 100);
 
 	alpha = 255;
 	
@@ -107,7 +107,7 @@ void  Boss::attack()
 }
 void Boss::attack1()
 {
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		int tempX = rand()%13 + 1;
 		int tempY = rand() % 8 + 1;
@@ -173,9 +173,6 @@ void Boss::move()
 void Boss::render()
 {
 	img->alphaRender(getMemDC(),x - 60,y  -250,alpha);
-	char str[128];
-	sprintf(str, "hp : %d  x:%d  y:%d", hp,arrayX,arrayY);
-	TextOut(getMemDC(), 10, 400, str, strlen(str));
 	hpBar->render();
 	if(KEYMANAGER->isToggleKey(VK_F1))
 		Rectangle(getMemDC(), x, y, x + 64, y + 64);

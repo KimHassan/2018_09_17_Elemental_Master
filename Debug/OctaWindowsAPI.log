@@ -1,5 +1,12 @@
-﻿  Boss.cpp
-d:\github\2018_09_17_elemental_master\boss.cpp(65): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\github\2018_09_17_elemental_master\boss.cpp(177): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+﻿  OctaWindowsAPI.cpp
+  PVEScene.cpp
+d:\github\2018_09_17_elemental_master\pvescene.cpp(145): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvescene.cpp(150): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvescene.cpp(155): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvescene.cpp(160): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvescene.cpp(165): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvescene.cpp(170): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\2018_09_17_elemental_master\pvescene.cpp(175): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  playGround.cpp
+  코드를 생성하고 있습니다...
   OctaWindowsAPI.vcxproj -> D:\GitHub\2018_09_17_Elemental_Master\Debug\OctaWindowsAPI.exe

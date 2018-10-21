@@ -36,6 +36,8 @@ HRESULT PVEScene::init()
 	p2->update();
 	itemCount = 0;
 	updateItemCount = 0;
+
+	backButton = IMAGEMANAGER->findImage("back_Button");
 	SOUNDMANAGER->play("BossScene", 0.5);
 	return S_OK;
 }
@@ -63,6 +65,9 @@ void PVEScene::Intro()
 
 void PVEScene::update()
 {
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+		if (PtInRect(&RectMake(0, 0, 100, 100), _ptMouse))
+			SCENEMANAGER->changeScene("TitleScene");
 	if (isEnd == 1)
 	{
 		alpha += 5;
@@ -180,6 +185,7 @@ void PVEScene::render()
 		black->alphaRender(getMemDC(), alpha);
 	if (isEnd == 2)
 		ending->render(getMemDC());
+	backButton->render(getMemDC());
 	Scene::render();
 }
 void PVEScene::release()
