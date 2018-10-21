@@ -108,7 +108,7 @@ void tileManager::maketilestage(const char *_stageName, int *tilePattern)
 		}
 	}
 
-	else if (stageName == "FireStage")
+	else if (stageName == "BossStage")
 	{
 		for (int y = 0; y < lastArrY; y++)
 		{
@@ -135,7 +135,7 @@ void tileManager::maketilestage(const char *_stageName, int *tilePattern)
 			}
 		}
 	}
-	if (stageName == "BossStage")
+	/*if (stageName == "BossStage")
 	{
 		for (int y = 0; y < lastArrY; y++)
 		{
@@ -161,7 +161,7 @@ void tileManager::maketilestage(const char *_stageName, int *tilePattern)
 				}
 			}
 		}
-	}
+	}*/
 }
 
 void tileManager::pushTile(const char *_stageName, const char *imageName, int _arrayY, int _arrayX, int _state, bool _setCheck)

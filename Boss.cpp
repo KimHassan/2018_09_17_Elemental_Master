@@ -6,8 +6,8 @@ HRESULT Boss::init()
 {
 
 	img = IMAGEMANAGER->findImage("Boss");
-	arrayY = 2;
-	arrayX = 5;
+	arrayY = 6;
+	arrayX = 7;
 	x = TILEMANAGER->GetTileList("x")[arrayY][arrayX].GetTileRect().left;
 	y = TILEMANAGER->GetTileList("x")[arrayY][arrayX].GetTileRect().top;
 
@@ -27,11 +27,16 @@ HRESULT Boss::init()
 
 	isDamaged = false;
 	damagedCount = 0;
+	isDead = false;
+
+	hpBar = new progressBar;
+	hpBar->init(-100, -100);
 	return S_OK;
 }
 
 void Boss::update()
 {
+	cheat();
 	if (isDamaged == false)
 	{
 		if (  TILEMANAGER->GetTileList("w")[arrayY][arrayX].GetTileState() == BOOM ||
@@ -56,11 +61,31 @@ void Boss::update()
 	move();
 	attack();
 	b->update();
+	hpBar->update(x-35, y-300);
+	hpBar->setGauge(hp, 40);
+	if (hp <= 0)
+		isDead = true;
 }
-
+void Boss::cheat()
+{
+	if (KEYMANAGER->isOnceKeyDown(VK_F1))
+	{
+		hp -= 15;
+	}
+}
 void  Boss::attack()
 {
 	updateAttackCount++;
+	if (hp < 15)
+	{
+		if (updateAttackCount % 20 == 0)
+		{
+			int tempX = rand() % 13 + 1;
+			int tempY = rand() % 8 + 1;
+			b->setBomb(tempY, tempX);
+		}
+		return;
+	}
 	if (updateAttackCount > attackCount)
 	{
 		int num = rand() % 3;
@@ -82,7 +107,7 @@ void  Boss::attack()
 }
 void Boss::attack1()
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 14; i++)
 	{
 		int tempX = rand()%13 + 1;
 		int tempY = rand() % 8 + 1;
@@ -91,18 +116,18 @@ void Boss::attack1()
 }
 void Boss::attack2()
 {
-	for (int i = 1; i < 14; i++)
+	for (int i = 1; i < 14; i+=2)
 	{
 		b->setBomb(5, i);
 	}
-	for (int i = 1; i < 9; i++)
+	for (int i = 1; i < 9; i+=2)
 	{
 		b->setBomb(i, 7);
 	}
 }
 void Boss::attack3()
 {
-	for (int i = 1; i < 9; i++)
+	for (int i = 1; i < 9; i+=2)
 	{
 		b->setBomb(i, 3);
 		b->setBomb(i, 7);
@@ -115,15 +140,15 @@ void Boss::move()
 	updateMoveCount++;
 	if (updateMoveCount > moveCount)
 	{
-		moveX = rand() % 12 + 2;
-		moveY = rand() % 7 + 2;
+		moveX = rand() % 10 + 3;
+		moveY = rand() % 7 + 3;
 		isMoving = true;
-		moveCount = rand() % 1000 + 300;
+		moveCount = rand() % 700 + 100;
 		updateMoveCount = 0;
 	}
 	if (isMoving == true)
 	{
-		alpha-=3;
+		alpha-=5;
 		if (alpha < 0)
 		{
 			arrayY = moveY;
@@ -136,7 +161,7 @@ void Boss::move()
 	}
 	if (isMoving2 == true)
 	{
-		alpha += 3;
+		alpha += 5;
 		if (alpha > 255)
 		{
 			alpha = 255;
@@ -147,10 +172,13 @@ void Boss::move()
 
 void Boss::render()
 {
-	img->alphaRender(getMemDC(),x-100,y-126,alpha);
+	img->alphaRender(getMemDC(),x - 60,y  -250,alpha);
 	char str[128];
 	sprintf(str, "hp : %d  x:%d  y:%d", hp,arrayX,arrayY);
 	TextOut(getMemDC(), 10, 400, str, strlen(str));
+	hpBar->render();
+	if(KEYMANAGER->isToggleKey(VK_F1))
+		Rectangle(getMemDC(), x, y, x + 64, y + 64);
 }
 
 void Boss::release()

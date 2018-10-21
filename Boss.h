@@ -1,8 +1,11 @@
 #pragma once
 #include "gameNode.h"
+#include "progressBar.h"
 class Boss :
 	public gameNode
 {
+	
+
 	image *img;
 	int x, y;
 	POINT center;
@@ -17,6 +20,7 @@ class Boss :
 	UINT attackingCount;
 	
 	bool isDamaged;
+	bool isDead;
 	UINT damagedCount;
 	int hp;
 
@@ -27,6 +31,7 @@ class Boss :
 	UINT moveCount;
 	UINT updateMoveCount;
 
+	progressBar *hpBar;
 
 public:
 	HRESULT init();
@@ -40,10 +45,13 @@ public:
 	void attack2();
 	void attack3();
 
+	void cheat();
+
 	void move();
 
 	int getArrayX() { return arrayX; }
 	int getArrayY() { return arrayY; }
+	bool getDead() {	return isDead;}
 	BulletManager *getBullet() { return b; }
 	Boss();
 	~Boss();

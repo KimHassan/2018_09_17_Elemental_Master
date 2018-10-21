@@ -3,16 +3,20 @@
 #include "Player.h"
 #include "Player2.h"
 #include "Boss.h"
+#include "progressBar.h"
+
 class PVEScene :
 	public Scene
 {
+
 	Player *p1;
 	Player2 *p2;
 	Boss *b;
+	image *ending;
 
 	int mentAlpha;
 	int winPlayer;
-	bool isEnd;
+	int isEnd;
 	bool isIntro;
 	bool isStart;
 	POINT mentPosition;
@@ -20,6 +24,8 @@ class PVEScene :
 
 	UINT itemCount;
 	UINT updateItemCount;
+
+
 
 public:
 	void Intro();

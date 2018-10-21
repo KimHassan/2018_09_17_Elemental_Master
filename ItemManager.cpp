@@ -29,10 +29,7 @@ void ItemManager::render()
 void ItemManager::setItem(int arrayX, int arrayY)
 {
 	int num = rand() % 5;
-	//PowerUpItem *it = new PowerUpItem;
-	//it->init(arrayX, arrayY);
-	//vItem.push_back(it);
-	//
+
 	switch (num)
 	{
 		case 0:

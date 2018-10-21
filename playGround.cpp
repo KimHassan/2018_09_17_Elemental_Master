@@ -40,25 +40,36 @@ HRESULT playGround::init()
 	IMAGEMANAGER->addFrameImage("Bub2", "image/RedBub.bmp", 0, 0, 184, 46, 4, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom",	   "image/Boomcenter.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
 	IMAGEMANAGER->addFrameImage("Boom2", "image/Boomcenter2.bmp", 0, 0, 180, 60, 3, 1, true, RGB(0, 0, 0));
-	IMAGEMANAGER->addImage("Title_Scene", "image/title_scene.bmp", 640, 380, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("Title_Scene_Left", "image/left(70,35).bmp", 253, 290, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("Title_Scene_Right", "image/right(323,40).bmp", 221, 238, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("Title_Scene_How_To", "image/how_to_button(50,84).bmp", 48, 29, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Scene", "image/selectScene.bmp", 1280, 720, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Scene_Left1", "image/left_click(297,121).bmp", 345,408, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Scene_Left2", "image/left_overclick(297,121).bmp", 345,408, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Scene_Right1", "image/right_click(640,128).bmp",		350,370, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Scene_Right2", "image/right_overclick(640,128).bmp", 350,370, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Scene_How_To", "image/howto_overclick(258,203).bmp",68,44, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Main_Scene", "image/mainScene.bmp", 1280, 720, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Black", "image/black.bmp", 1280, 720, true, RGB(255, 0, 255));
 
 	IMAGEMANAGER->addImage("p1Win", "image/p1Win.bmp", 880, 300, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("p2Win", "image/p2Win.bmp", 880, 300, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("gameStart", "image/gameStart.bmp", 880, 300, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("Bubble", "image/Bubble.bmp", 64, 73, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("Bubble2", "image/Bubble2.bmp", 64, 73, true, RGB(0, 248, 0));
-	IMAGEMANAGER->addImage("Bubble3", "image/Bubble3.bmp", 64, 73, true, RGB(0, 78, 248));
+	IMAGEMANAGER->addImage("item1", "image/item1.bmp",47, 47, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("item2", "image/item2.bmp",47, 47, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("item3", "image/item3.bmp",47, 47, true, RGB(255, 0, 255));
 
-	IMAGEMANAGER->addImage("Boss", "image/boss.bmp", 210, 253, true, RGB(255, 0, 255));
+	//IMAGEMANAGER->addImage("hpBarB", "image/hpBarF.bmp", 152, 10, true, RGB(255, 0, 255));
+	//IMAGEMANAGER->addImage("hpBarF", "image/hpBarB.bmp", 160, 15, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addImage("exit_Button", "image/exit_button.bmp", 100,100, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("back_Button", "image/x_button.bmp", 100,100, true, RGB(255, 0, 255));
+
+
+	IMAGEMANAGER->addImage("Boss", "image/boss.bmp", 210, 357, true, RGB(255, 0, 255));
 
 	SOUNDMANAGER->addSound("BombEffect", "Sound/BombEffect.mp3", false, false);
 	SOUNDMANAGER->addSound("WaterStage", "Sound/WaterStageBgm.mp3", true, true);
 	SOUNDMANAGER->addSound("TitleScene", "Sound/SelectSceneBgm.mp3", true, true);
-
+	SOUNDMANAGER->addSound("BossScene", "Sound/BossBgm.mp3", true, true);
+	SOUNDMANAGER->addSound("Victory", "Sound/Victory2.mp3", true, true);
 
 	SCENEMANAGER->addScene("TitleScene", new TitleScene);
 	SCENEMANAGER->addScene("PVPScene", new PVPScene);

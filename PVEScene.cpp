@@ -23,18 +23,20 @@ HRESULT PVEScene::init()
 
 	b = new Boss;
 	b->init();
-	
+
 	mentPosition = PointMake(200, 210);
 	mentAlpha = 0;
 	img_GameStart = IMAGEMANAGER->findImage("gameStart");
+	ending = IMAGEMANAGER->findImage("gameStart");
 	winPlayer = 0;
-	isEnd = false;
+	isEnd = 0;
 	isIntro = false;
 	isStart = false;
 	p1->update();
 	p2->update();
 	itemCount = 0;
 	updateItemCount = 0;
+	SOUNDMANAGER->play("BossScene", 0.5);
 	return S_OK;
 }
 void PVEScene::Intro()
@@ -61,13 +63,33 @@ void PVEScene::Intro()
 
 void PVEScene::update()
 {
-	if (isEnd == true)
+	if (isEnd == 1)
 	{
+		alpha += 5;
+		if (alpha >= 255)
+		{
+			alpha = 255;
+			isEnd = 2;
+		}
+
+	}
+	if (isEnd == 2)
+	{
+		if (alpha == 255)
+		{
+			SOUNDMANAGER->stop("BossScene");
+			SOUNDMANAGER->play("Victory");
+		}
+		alpha -= 5;
+		if (alpha < 0)
+		{
+			alpha = 0;
+		}
 		if (KEYMANAGER->isOnceKeyDown(VK_RETURN))
 			SCENEMANAGER->changeScene("TitleScene");
 	}
-	else
-	{
+	if (isEnd >= 1)
+		return;
 		Scene::update();
 		if (isGameStart == true && isStart == false)
 			Intro();
@@ -77,6 +99,8 @@ void PVEScene::update()
 			p1->update();
 			p2->update();
 			b->update();
+			if (b->getDead() == true)
+				isEnd = 1;
 
 			itemCount++;
 			if (itemCount > updateItemCount)
@@ -95,10 +119,8 @@ void PVEScene::update()
 			{
 				isEnd = true;
 			}
-			
 		}
 
-	}
 
 }
 void PVEScene::render()
@@ -154,9 +176,18 @@ void PVEScene::render()
 	b->render();
 	if (isStart == false)
 		img_GameStart->alphaRender(getMemDC(), mentPosition.x, mentPosition.y, mentAlpha);
+	if (isEnd < 3)
+		black->alphaRender(getMemDC(), alpha);
+	if (isEnd == 2)
+		ending->render(getMemDC());
 	Scene::render();
 }
 void PVEScene::release()
 {
 
+	img_GameStart = NULL;
+
+	delete img_GameStart;
+	SOUNDMANAGER->stop("BossScene");
+	SOUNDMANAGER->stop("Victory");
 }

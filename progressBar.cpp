@@ -12,15 +12,15 @@ progressBar::~progressBar()
 
 }
 
-HRESULT progressBar::init(int x, int y, int width, int height)
+HRESULT progressBar::init(int x, int y)
 {
 	_x = x;
 	_y = y;
 
-	_rcProgress = RectMake(x, y, width, height);
-	_progressBarTop = IMAGEMANAGER->addImage("frontBar", "hpBarTop.bmp", x, y, width, height, true, RGB(255, 0, 255));
+	_rcProgress = RectMake(x, y, 53 * 3, 5 * 3);
+	_progressBarTop = IMAGEMANAGER->addImage("frontBar", "image/hpBarTop.BMP", x, y, 53* 3, 5 *3, true, RGB(255, 0, 255));
 	_progressBarBottom = IMAGEMANAGER->addImage("backBar",
-		"hpBarBottom.bmp", x, y, width, height, true, RGB(255, 0, 255));
+		"image/hpBarBottom.BMP", x, y, 53 * 3, 5 * 3, true, RGB(255, 0, 255));
 
 	//게이지바의 이미지의 길이
 	_width = _progressBarTop->getWidth();
@@ -33,8 +33,10 @@ void progressBar::release()
 
 }
 
-void progressBar::update()									  
+void progressBar::update(int x, int y)
 {
+	_x = x;
+	_y = y;
 	_rcProgress = RectMakeCenter(_x, _y, _progressBarTop->getWidth(), _progressBarTop->getHeight());
 }
 

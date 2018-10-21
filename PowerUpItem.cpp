@@ -5,7 +5,7 @@
 HRESULT PowerUpItem::init( int _arrayX, int _arrayY)
 {
 	Item::init(_arrayX, _arrayY);
-	img = IMAGEMANAGER->findImage("Bubble");
+	img = IMAGEMANAGER->findImage("item1");
 	power = 1;
 
 	return S_OK;

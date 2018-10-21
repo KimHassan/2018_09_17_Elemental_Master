@@ -46,5 +46,11 @@ public:
 
 	bool isPlaySound(string keyName);
 	bool isPauseSound(string keyName);
+
+	map<string, Sound**> getArrSounds()
+	{
+		return _mTotalSounds;
+
+	}
 };
 

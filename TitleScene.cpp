@@ -14,28 +14,67 @@ TitleScene::~TitleScene()
 
 HRESULT TitleScene::init()
 {
-	bg			=  IMAGEMANAGER->findImage("Title_Scene");
-	leftSelect  =  IMAGEMANAGER->findImage("Title_Scene_Left");
-	rightSelect =  IMAGEMANAGER->findImage("Title_Scene_Right" );
-	howToSelect =  IMAGEMANAGER->findImage("Title_Scene_How_To");
+	title	    = IMAGEMANAGER->findImage("Main_Scene");
+	bg			=  IMAGEMANAGER->findImage("Select_Scene");
+	leftSelect  =  IMAGEMANAGER->findImage("Select_Scene_Left1");
+	rightSelect =  IMAGEMANAGER->findImage("Select_Scene_Right1" );
+	leftSelect2 = IMAGEMANAGER->findImage("Select_Scene_Left2");
+	rightSelect2 = IMAGEMANAGER->findImage("Select_Scene_Right2");
+	howToSelect  =  IMAGEMANAGER->findImage("Select_Scene_How_To");
+	black		 =  IMAGEMANAGER->findImage("Black");
+	exitButton =IMAGEMANAGER->findImage("exit_Button");
+	backButton =IMAGEMANAGER->findImage("back_Button");
 
-	leftSelectRect	= RectMake(70 *2 + 30,35*2,253*2 - 30,290*2);
-	rightSelectRect	= RectMake(323*2,40*2,221*2,238*2);
-	howToSelectRect	= RectMake(50 *2 + 30,84*2,48 *2,29 *2);
+	leftSelectRect	= RectMake(340,151,297,364);
+	rightSelectRect	= RectMake(643,150,317,334);
+	howToSelectRect	= RectMake(256,203,70,43);
+	buttonRect = RectMake(0, 0, 100, 100);
 
 	isleftSelect	=    false;
 	isrightSelect	=    false;
 	ishowToSelect	=    false;
-
-	black = IMAGEMANAGER->findImage("Black");
-	alpha = 0;
+	ishowToScene = false;
 	isGameStart = false;
+
+	
+	alpha = 0;
+	
 	moveScene = 0;
 	SOUNDMANAGER->play("TitleScene", 1);
+	changeScene = 0;
 	return S_OK;
 }
 void TitleScene::update()
 {
+
+	if (changeScene == 0)
+	{
+		if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+		{
+			changeScene = 1;
+		}
+		return;
+	}
+	if (changeScene == 1)
+	{
+		alpha += 5;
+		if (alpha >= 255)
+		{
+			alpha = 255;
+			changeScene = 2;
+		}
+	}
+	if (changeScene == 2)
+	{
+		alpha -= 5;
+		if (alpha <= 0)
+		{
+			alpha = 0;
+			changeScene = 5;
+		}
+	}
+	if (changeScene < 3)
+		return;
 	if (isGameStart)
 	{
 		alpha+=5;
@@ -54,6 +93,17 @@ void TitleScene::update()
 	}
 	else
 	{
+		if (ishowToScene)
+		{
+			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+			{
+				if (PtInRect(&buttonRect, _ptMouse))
+				{
+					ishowToScene = false;
+				}
+			}
+			return;
+		}
 		if (PtInRect(&leftSelectRect, _ptMouse))
 		{
 			isleftSelect = true;
@@ -85,6 +135,10 @@ void TitleScene::update()
 			ishowToSelect = true;
 			isleftSelect = false;
 			isrightSelect = false;
+			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+			{
+				ishowToScene = true;
+			}
 		}
 	}
 
@@ -92,28 +146,48 @@ void TitleScene::update()
 void TitleScene::render()
 {
 	IMAGEMANAGER->findImage("Black")->render(getMemDC(), 0, 0);
-	bg->scaleRender(getMemDC(), 0, 0,2,2);
-	if (isleftSelect)
+
+	bg->render(getMemDC());
+	if (isleftSelect && !isGameStart)
 	{
-		leftSelect->scaleRender(getMemDC(), 70 * 2, 35 * 2, 2, 2);
+		leftSelect->render(getMemDC(), 297, 121);
 	}
-	if(isrightSelect)
-		rightSelect->scaleRender(getMemDC(), 323*2, 40*2,2,2);
+	
+	if (isrightSelect && !isGameStart)
+		rightSelect->render(getMemDC(), 640, 128);
 	if(ishowToSelect)
-		howToSelect->scaleRender(getMemDC(), 50*2, 84*2,2,2);
+		howToSelect->render(getMemDC(), 258,203);
+	if (isGameStart && moveScene == 1)
+		leftSelect2->render(getMemDC(), 297, 121);
+	if (isGameStart && moveScene == 2)
+		rightSelect2->render(getMemDC(), 640, 128);
+	exitButton->render(getMemDC(), 0, 0);
+	if (ishowToScene)
+	{
+		howToSelect->render(getMemDC(), 0, 0);
+		backButton->render(getMemDC(), 0, 0);
+	}
+	if (changeScene < 2)
+		title->render(getMemDC(), 0, 0);
 	black->alphaRender(getMemDC(), alpha);
 }
 void TitleScene::release()
 {
+	title = NULL;
 	bg			= NULL;
 	leftSelect	= NULL;
 	rightSelect	= NULL;
 	howToSelect	= NULL;
+	leftSelect2= NULL;
+	rightSelect2 = NULL;
 	black		= NULL;
 
+	delete title;
 	delete bg;
 	delete leftSelect;
 	delete rightSelect;
+	delete leftSelect2;
+	delete rightSelect2;
 	delete howToSelect;
 	delete black;
 

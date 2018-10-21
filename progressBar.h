@@ -16,9 +16,9 @@ public:
 	progressBar();
 	~progressBar();
 
-	HRESULT init(int x, int y, int width, int height);
+	HRESULT init(int x, int y);
 	void release();
-	void update();
+	void update(int x, int y);
 	void render();
 
 	void setGauge(float currentGauge, float maxGauge);
